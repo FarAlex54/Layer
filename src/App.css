@@ -1,8 +1,6 @@
 @font-face {
     font-family: Roboto;
     src: url('../public/fonts/Roboto.ttf');
-/*     font-weight: bold;
-    font-style: normal; */
 }
 /* для блока "Услуги" */
 .services_card{
@@ -85,4 +83,30 @@ packages_name{
     font-weight: 400;
     line-height: normal;
     letter-spacing: 2.75px;
+}
+
+/* Для блока акций */
+.stocks{
+    background-color: #FFFFFF;
+    color: #5C5E6C;
+    text-align: start;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Roboto;
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.75px;
+}
+/* Для блока Header */
+.header_text{
+    color: #000;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
 }

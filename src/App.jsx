@@ -2,16 +2,16 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
 import Header from './components/Header';
-import Banner from './components/Banner';
-import Services from './components/Services';
-import Packages from './components/Packages';
-import InfoCommand from './components/InfoCommand';
-import Stocks from './components/Stocks';
 import SelfFooter from './components/SelfFooter';
 import Footer from './components/Footer';
-import GeoLocation from './components/GeoLocation';
+import {Route, Routes, BrowserRouter as Router} from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Home from './components/Home';
+import ServicesPage from './components/pages/ServicesPage';
+import KnowsPage from './components/pages/KnowsPage';
+import AboutPage from './components/pages/AboutPage';
+import ContactsPage from './components/pages/ContactsPage';
 
 //ОЧЕНЬ ВАЖНО ЗАПУСТИТЬ json-server -p 3001 -w db.json
 export const AppContext = React.createContext({});
@@ -42,13 +42,16 @@ function App() {
     <AppContext.Provider
       value={{services, packages}}>
       <div>
-        <Header/>
-        <Banner/>
-        <Services/>
-        <InfoCommand/>
-        <Packages/>
-        <Stocks/>
-        <GeoLocation />
+        <Router>
+          <Header/>
+            <Routes>
+              <Route path='/' element={<Home/>}/>
+              <Route path='/services' element={<ServicesPage/>}/>
+              <Route path='/knows' element={<KnowsPage/>}/>
+              <Route path='/about' element={<AboutPage/>}/>
+              <Route path='/contacts' element={<ContactsPage/>}/>
+            </Routes>
+        </Router>
         <Footer />
         <SelfFooter />
       </div>
