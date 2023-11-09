@@ -19,8 +19,10 @@ function App() {
   const [isLoading, setLoading] = useState(true); //состояние получения ответа axios при открытии приложения
   const [services, setServices] = useState([]);//хук хранит инфу об Услугах
   const [packages, setPackages] = useState([]);//хук хранит инфу об Пакетах
+  const [contacts, setContacts] = useState([]);//хук хранит инфу об контактах
   const [stocks, setStocks] = useState([]);//хук хранит инфу об акциях
   const [users, setUsers] = useState([]);//хук хранит инфу о пользователях
+
   useEffect(() => {
     async function axiosServices(){
       await axios.get('http://localhost:3001/services/')
@@ -30,17 +32,23 @@ function App() {
       await axios.get('http://localhost:3001/packages/')
         .then(infoPackages=>{setPackages(infoPackages.data);})
     }
+    async function axiosContacts(){
+      await axios.get('http://localhost:3001/contacts/')
+        .then(infoContacts=>{setContacts(infoContacts.data);})
+    }
     axiosServices();
     axiosPackages();
+    axiosContacts();
   }, []);
+/*   console.log('Контакты: ',contacts.length) */
 /*   console.log("services: ",services.length);
   console.log("packages: ",packages.length); */
 /*   if (isLoading) {return <div className="App">Loading...</div>;} */
-  if (services.length===0 && packages.length===0) {return <div className="App">Loading...</div>;}
+  if (services.length===0 && packages.length===0 && contacts.length===0) {return <div className="App">Loading...</div>;}
   else{
   return (
     <AppContext.Provider
-      value={{services, packages}}>
+      value={{services, packages, contacts}}>
       <div>
         <Router>
           <Header/>

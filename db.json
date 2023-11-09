@@ -37,6 +37,13 @@
 	"path": "/img/icons8-6.png"
     }
 ],
+  "contacts": {
+
+	"telephone": "+79833113111",
+	"email": "sibacadem@mail.ru",
+	"addr": "Новосибирск, ул. Ленина д.11"
+
+},
   "packages": [
     {
         "id": 1,
