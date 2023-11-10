@@ -5,6 +5,13 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/esm/Button';
 
 const AboutPage = () => {
+  const a =[];
+  a[0] = {title:'Специализация компании',text: 'Оказание комплексных юридических, финансовых, бухгалтерских и аудиторских услуг бизнесу.'};
+  a[1] = {title:'Компетенции компании',text: 'Cоздание бизнеса Клиента, построение его оптимальной структуры ; аккуратное и легальное сопровождение прекращения бизнеса Клиента или выхода из него.'};
+  a[2] = {title:'Цели компании',text: 'Комплексное и эффективное правовое, бухгалтерское и налоговое сопровождение бизнеса клиентов в целях его развития.'};
+  a[3] = {title:'Клиенты',text: 'Управляющими партнерами выстроены долгосрочные отношения с клиентами. Нас рекомендуют, мы не проводим активных рекламных кампаний и рассылок и чаще всего работаем по рекомендации.'};
+  a[4] = {title:'Конфиденциальность',text: 'Неразглашение данных о клиенте — четкое правило нашей работы, так как нам доверяют информацию.'};
+         
   return (
     <div>
       <div className='d-flex flex-column' style={{background:'#444856'}}>
@@ -23,8 +30,8 @@ const AboutPage = () => {
       </div>
 
       <div className='d-flex flex-column' style={{background:'#FFF'}}>
-          <Container className='py-5'>
-            <div className='d-flex justify-content-center p_test_2 pb-5'>
+          <Container className='pt-5'>
+            <div className='d-flex justify-content-center p_test_2'>
               <div className='pe-5'><div className='line mx-auto'></div></div>
               <div>В профессии с 2001 года</div>
               <div className='px-5'><div className='line mx-auto'></div></div>
@@ -33,11 +40,20 @@ const AboutPage = () => {
               <div>Компания создана в 2017 году</div>
               <div className='ps-5'><div className='line mx-auto'></div></div>
             </div>
-            <div className='d-flex justify-content-between bg-info'>
-              <div>1</div>
-              <div>2</div>
-              <div>3</div>
-            </div>
+          </Container>
+          <Container className='d-flex flex-wrap justify-content-start align-items-stretch pt-5 pb-3'>
+             {a.map((obj)=>{
+              return (
+                <div className='p-1' style={{width:'33%'}}>
+                  <div className='card_about_next'style={{height:'100%'}}>
+                    <div className='d-flex flex-row align-items-center'>
+                      <div className='ms-2 me-3' style={{width:'20%'}}><img className='img-fluid' src="img/GroupPhones.png" alt="" /></div>
+                      <div className=' flex-fill text-center'><span className='card_about_p text-center'>{obj.title}</span></div>
+                    </div>
+                    <p className='text-center'>{obj.text}</p>
+                  </div>
+                </div>)
+             })}
           </Container>
       </div>
 

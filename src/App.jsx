@@ -59,9 +59,9 @@ function App() {
               <Route path='/about' element={<AboutPage/>}/>
               <Route path='/contacts' element={<ContactsPage/>}/>
             </Routes>
+          <Footer />
+          <SelfFooter />
         </Router>
-        <Footer />
-        <SelfFooter />
       </div>
     </AppContext.Provider>
   );

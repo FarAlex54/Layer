@@ -1,19 +1,20 @@
 import React from 'react'
 import ListGroup from 'react-bootstrap/ListGroup';
+import {Link} from 'react-router-dom';
 
 const Footer = () => {
   return (
     <div className='row justify-contend-center py-5'>
         <div className='col p-5 text-center'>
-            <img src="/img/Logo.png" alt="" />
+            <img src="/img/LogoNew.png" alt="" />
             <span>надежный опыт с 2004 года для оперативного решения нестандартных и сложных задач</span></div>
         <div className='col p-5'>
             <h3>Компания</h3>
             <ListGroup className='list-group-flush'>
-                <ListGroup.Item action /* onClick={} */>О нас</ListGroup.Item>
-                <ListGroup.Item action /* onClick={} */>Услуги</ListGroup.Item>
-                <ListGroup.Item action /* onClick={} */>База знаний</ListGroup.Item>
-                <ListGroup.Item action /* onClick={} */>Контакты</ListGroup.Item>
+                <ListGroup.Item action /* onClick={} */><Link to={'/about'} className='text-dark text-decoration-none'>О нас</Link></ListGroup.Item>
+                <ListGroup.Item action /* onClick={} */><Link to={'/services'} className='text-dark text-decoration-none'>Услуги</Link></ListGroup.Item>
+                <ListGroup.Item action /* onClick={} */><Link to={'/knows'} className='text-dark text-decoration-none'>База знаний</Link></ListGroup.Item>
+                <ListGroup.Item action /* onClick={} */><Link to={'/contacts'} className='text-dark text-decoration-none'>Контакты</Link></ListGroup.Item>
             </ListGroup>
         </div>
         <div className='col p-5'>

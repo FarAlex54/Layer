@@ -2,9 +2,9 @@
   "services": [
     {
         "id": 1,
-        "name": "Финансовый аутсорсинг",
+        "name": "Управленческий учет",
         "description": "",
-	"path": "/img/icons8-1.png"
+	"path": "/img/icons8-6.png"
     },
     {
         "id": 2,
@@ -16,25 +16,25 @@
         "id": 3,
         "name": "Бухгалтерский аутсорсинг",
         "description": "",
-	"path": "/img/icons8-3.png"
+	"path": "/img/icons8-1.png"
     },
     {
         "id": 4,
         "name": "Налоговая оптимизация",
         "description": "",
-	"path": "/img/icons8-4.png"
+	"path": "/img/icons8-3.png"
     },
     {
         "id": 5,
         "name": "Налоговые проверки",
         "description": "",
-	"path": "/img/icons8-5.png"
+	"path": "/img/icons8-4.png"
     },
     {
         "id": 6,
         "name": "Обучение",
         "description": "",
-	"path": "/img/icons8-6.png"
+	"path": "/img/icons8-5.png"
     }
 ],
   "contacts": {
