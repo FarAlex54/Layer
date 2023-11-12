@@ -16,12 +16,24 @@ import ContactsPage from './components/pages/ContactsPage';
 //ОЧЕНЬ ВАЖНО ЗАПУСТИТЬ json-server -p 3001 -w db.json
 export const AppContext = React.createContext({});
 function App() {
+    /* Определение размеров экрана для вычисления ориентации окна браузера
+  и определения размеров начальной области поиска отделений */
+        const [pageWidth, setPageWidth] = useState(document.documentElement.scrollWidth);
+        const [pageHeight, setPageHeight] = useState(document.documentElement.scrollHeight);
   const [isLoading, setLoading] = useState(true); //состояние получения ответа axios при открытии приложения
   const [services, setServices] = useState([]);//хук хранит инфу об Услугах
   const [packages, setPackages] = useState([]);//хук хранит инфу об Пакетах
   const [contacts, setContacts] = useState([]);//хук хранит инфу об контактах
   const [stocks, setStocks] = useState([]);//хук хранит инфу об акциях
   const [users, setUsers] = useState([]);//хук хранит инфу о пользователях
+
+  window.onload = function() { 
+    setPageWidth(window.innerWidth);
+  }; 
+  window.onresize = function() { 
+    setPageWidth(window.innerWidth);
+  };
+
 
   useEffect(() => {
     async function axiosServices(){
@@ -40,6 +52,7 @@ function App() {
     axiosPackages();
     axiosContacts();
   }, []);
+  console.log('Размер экрана:',pageWidth);
 /*   console.log('Контакты: ',contacts.length) */
 /*   console.log("services: ",services.length);
   console.log("packages: ",packages.length); */
@@ -48,7 +61,7 @@ function App() {
   else{
   return (
     <AppContext.Provider
-      value={{services, packages, contacts}}>
+      value={{services, packages, contacts, pageWidth, setPageWidth}}>
       <div>
         <Router>
           <Header/>

@@ -4,8 +4,19 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
+import { AppContext } from '../App';
 
 function Header() {
+  const HeaderContext = React.useContext(AppContext);
+  const container = ()=>{
+    let button_position={
+      position: '',
+      right: ''}
+    if (HeaderContext.pageWidth>991) {button_position = {position: 'absolute',
+    right: '-5px'}}
+    return button_position;
+  }
+  console.log('Значение функции container:', container());
   return (
     <Navbar expand="lg">
       <div className='' style={{width:'320px'}}>
@@ -15,14 +26,14 @@ function Header() {
           <Container className=''>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
-                  <Nav className='me-auto'>
+                  <Nav className='d-flex justify-content-around w-75'>
                     <Nav.Link><Link className='header_text' to={'/'}>Главная</Link></Nav.Link>
                     <Nav.Link><Link className='header_text' to={'/services'}>Услуги</Link></Nav.Link>
                     <Nav.Link><Link className='header_text' to={'/knows'}>База знаний</Link></Nav.Link>
                     <Nav.Link><Link className='header_text' to={'/about'}>О нас</Link></Nav.Link>
                     <Nav.Link><Link className='header_text' to={'/contacts'}>Контакты</Link></Nav.Link>
                   </Nav>
-                  <Button className='' size='lg' variant='primary'>Личный кабинет</Button>  
+                  <Button className='' size='lg' variant='primary' style={container()}>Личный кабинет</Button>
             </Navbar.Collapse>
           </Container>
       </div>  
