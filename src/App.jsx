@@ -13,17 +13,100 @@ import KnowsPage from './components/pages/KnowsPage';
 import AboutPage from './components/pages/AboutPage';
 import ContactsPage from './components/pages/ContactsPage';
 
-//ОЧЕНЬ ВАЖНО ЗАПУСТИТЬ json-server -p 3001 -w db.json
 export const AppContext = React.createContext({});
 function App() {
     /* Определение размеров экрана для вычисления ориентации окна браузера
   и определения размеров начальной области поиска отделений */
         const [pageWidth, setPageWidth] = useState(document.documentElement.scrollWidth);
         const [pageHeight, setPageHeight] = useState(document.documentElement.scrollHeight);
-  const [isLoading, setLoading] = useState(true); //состояние получения ответа axios при открытии приложения
-  const [services, setServices] = useState([]);//хук хранит инфу об Услугах
-  const [packages, setPackages] = useState([]);//хук хранит инфу об Пакетах
-  const [contacts, setContacts] = useState([]);//хук хранит инфу об контактах
+  const [services, setServices] = useState([
+    {
+      "id": 1,
+      "name": "Управленческий учет",
+      "description": "",
+"path": "/img/icons8-6.png"
+  },
+  {
+      "id": 2,
+      "name": "Экономическая безопасность",
+      "description": "",
+"path": "/img/icons8-2.png"
+  },
+  {
+      "id": 3,
+      "name": "Бухгалтерский аутсорсинг",
+      "description": "",
+"path": "/img/icons8-1.png"
+  },
+  {
+      "id": 4,
+      "name": "Налоговая оптимизация",
+      "description": "",
+"path": "/img/icons8-3.png"
+  },
+  {
+      "id": 5,
+      "name": "Налоговые проверки",
+      "description": "",
+"path": "/img/icons8-4.png"
+  },
+  {
+      "id": 6,
+      "name": "Обучение",
+      "description": "",
+"path": "/img/icons8-5.png"
+  }
+  ]);//хук хранит инфу об Услугах
+  const [packages, setPackages] = useState([
+    {
+      "id": 1,
+      "name": "Старт",
+"price": "7000 руб / мес",
+      "description": "Профессиональный тарифный план",
+"include": [
+  "Сдача отчетности",
+  "ФНС"],
+"uninclude": [
+   "ПФР",
+  "Безлимитные консультации",
+  "Регламентные задания"]
+  },
+  {
+      "id": 2,
+      "name": "Старт+",
+"price": "12000 руб / мес",
+      "description": "Профессиональный тарифный план",
+"include": [
+  "Сдача отчетности",
+  "ФНС",
+  "ПФР"
+  ],
+"uninclude": [
+  "Безлимитные консультации",
+  "Регламентные задания"]
+  },
+  {
+      "id": 3,
+      "name": "Все включено",
+"price": "15000 руб / мес",
+      "description": "Профессиональный тарифный план",
+"include": [
+  "Сдача отчетности",
+  "ФНС",
+  "ПФР",
+  "Безлимитные консультации",
+  "Регламентные задания"
+  ],
+"uninclude": []
+  }
+  ]);//хук хранит инфу об Пакетах
+  const [contacts, setContacts] = useState([
+    {
+      "telephone": "+79833113111",
+      "email": "sibacadem@mail.ru",
+      "addr": "Новосибирск, ул. Ленина д.11"
+    }
+  ]);//хук хранит инфу об контактах
   const [stocks, setStocks] = useState([]);//хук хранит инфу об акциях
   const [users, setUsers] = useState([]);//хук хранит инфу о пользователях
 
@@ -35,24 +118,26 @@ function App() {
   };
 
 
-  useEffect(() => {
+/*   useEffect(() => {
     async function axiosServices(){
-      await axios.get('http://localhost:3001/services/')
+      await axios.get('http://192.168.2.200:3001/services/')
         .then(infoServices=>{setServices(infoServices.data);})
     }
     async function axiosPackages(){
-      await axios.get('http://localhost:3001/packages/')
+      await axios.get('http://192.168.2.200:3001/packages/')
         .then(infoPackages=>{setPackages(infoPackages.data);})
     }
     async function axiosContacts(){
-      await axios.get('http://localhost:3001/contacts/')
+      await axios.get('http://192.168.2.200:3001/contacts/')
         .then(infoContacts=>{setContacts(infoContacts.data);})
     }
     axiosServices();
     axiosPackages();
     axiosContacts();
-  }, []);
-  console.log('Размер экрана:',pageWidth);
+  }, []); */
+  console.log('Services:',services);
+  console.log('Packages:',packages);
+  console.log('Contacts:',contacts);
 /*   console.log('Контакты: ',contacts.length) */
 /*   console.log("services: ",services.length);
   console.log("packages: ",packages.length); */
