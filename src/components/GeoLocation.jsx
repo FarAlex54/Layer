@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/esm/Container';
 const GeoLocation = () => {
   return (
     <Container className='geolocation_map py-5'>
-        <h1>Наши клиенты</h1>
+        <div className='name_block_light'>Наши клиенты</div>
         <YMaps>
             <div className=''>
               <Map instanceRef={ref => { ref && ref.behaviors.disable('scrollZoom'); }} width='100%' height={window.innerWidth/3}

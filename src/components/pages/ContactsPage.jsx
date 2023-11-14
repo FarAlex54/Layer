@@ -21,7 +21,7 @@ const ContactsPage = () => {
       </div>
       <div className=''>
         <Container>
-          <h1 className='h1pages pPages'>Мы работаем по всей России</h1>
+          <div className='name_block_light'>Мы работаем по всей России</div>
           <img className='img-fluid' src="/img/map_contacts.png" alt="" />
         </Container>
       </div>

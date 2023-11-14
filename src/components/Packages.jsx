@@ -9,7 +9,7 @@ const Packages = () => {
   const PackagesContext = React.useContext(AppContext);
   return (
     <div className='bg-secondary py-4'>
-      <h1 className='text-light px-5'>Пакеты услуг</h1>
+      <div className='name_block_dark text-light px-5'>Пакеты услуг</div>
         <Container className='d-flex flex-wrap justify-content-center'>
             {[...Array(Object.keys(PackagesContext.packages).length)].map((obj,i)=>{
                 return <div className='col-xl-4 col-lg-4 col-md-5 col-sm-10 col-10 p-3'>

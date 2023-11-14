@@ -16,7 +16,6 @@ function Header() {
     right: '-5px'}}
     return button_position;
   }
-  console.log('Значение функции container:', container());
   return (
     <Navbar expand="lg">
       <div className='' style={{width:'320px'}}>
@@ -33,7 +32,7 @@ function Header() {
                     <Nav.Link><Link className='header_text' to={'/about'}>О нас</Link></Nav.Link>
                     <Nav.Link><Link className='header_text' to={'/contacts'}>Контакты</Link></Nav.Link>
                   </Nav>
-                  <Button className='' size='lg' variant='primary' style={container()}>Личный кабинет</Button>
+                  {/* <Button className='' size='lg' variant='primary' style={container()}>Личный кабинет</Button> */}
             </Navbar.Collapse>
           </Container>
       </div>  
