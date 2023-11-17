@@ -10,15 +10,15 @@ const PackagesNew = () => {
         {id:'11'},
         {id:'22'},
         {id:'33'},
-        {id:'22'},
-        {id:'33'}
+        {id:'44'},
+        {id:'55'}
     ]);
+
     useEffect(()=>{
-        const cardsNumbs = kolvo.length-1;//Количество карточек
+        const cardsNumbs = kolvo.length;//Количество карточек
         const arrowBtns = document.querySelectorAll('.arrow-btn') //ищет и записывает все элементы с классом arrow-btn в обьект
         const cardBtns = document.querySelectorAll('.card_carus') //ищет и записывает все элементы с классом card_carus в обьект
-        let currentCard = cardsNumbs/2; //текущая активная карточка при загрузке страницы середина
-        console.log('currentCard ',currentCard)
+        let currentCard =(cardsNumbs%2 > 0) ? (cardsNumbs-1)/2 : (cardsNumbs)/2; //текущая активная карточка при загрузке страницы середина
         let dir = 1;//Означает что все кнопки управления на месте'        
         arrowBtns.forEach((btn,i)=>{//в итоге из обьекта arrowBtns берется два обьекта в виде стелочек
             btn.onpointerenter = (e)=> gsap.to(btn, {ease:'expo','box-shadow':'0 3px 4px #00000050'})//анимация для стрелочки дальше
@@ -55,10 +55,23 @@ const PackagesNew = () => {
                 moveCards(0.75)
             }
         })
-        function moveCards(dur=0){
+        function moveCards(dur=0){ //ВАЖНО!!!! указать что в бд должнобыть не меньше 3ех и не больше 5 пакетов услуг
+                                    // иначе бутстрап поедет. Если нужно боьше будем подстраивать.
+            function xPos(cardsNumbs){//выбор сдвига зависит от количества карточек
+                switch(cardsNumbs) {
+                    case 3:
+                    return -510;
+                    case 4:
+                    return -340;   
+                    case 5:
+                    return -270;
+                    default:
+                    return -270;
+             }
+            }
             gsap.timeline({defaults:{ duration:dur, ease:'power3', stagger:{each:-0.03*dir} }})
             .to('.card_carus', {
-                x:-170*currentCard,//центрирование фокусированной карточки
+                x: xPos(cardsNumbs)*currentCard,//центрирование фокусированной карточки
                 y:(i)=>(i===currentCard)?0:15,//вертикальное выравнивание второстепенных карточек
                 height:(i)=>(i===currentCard)?270:240,//высота активной/пассивной карточки
                 ease:'elastic.out(0.4)'//gsap дрыгалка
@@ -74,7 +87,7 @@ const PackagesNew = () => {
                 autoAlpha:(currentCard===0)?0:1
             }, 0)
             .to('.arrow-btn-next', { //гасим кнопки при границах списка карточек
-                autoAlpha:(currentCard===cardsNumbs)?0:1
+                autoAlpha:(currentCard===cardsNumbs-1)?0:1
             }, 0)
             .to('.card_carus h4', { // анимация заголовка h4
                 y:(i)=>(i===currentCard)?10:8,    
