@@ -5,6 +5,7 @@ import InfoCommand from './InfoCommand';
 import Packages from './Packages';
 import Stocks from './Stocks';
 import GeoLocation from './GeoLocation';
+import PackagesNew from './PackagesNew';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <Banner/>
         <Services/>
         <InfoCommand/>
+        <PackagesNew/>
         <Packages/>
         <Stocks/>
         <GeoLocation />

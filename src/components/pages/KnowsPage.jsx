@@ -1,17 +1,28 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import { AppContext } from '../../App';
+import { useState } from 'react';
 
 const KnowsPage = () => {
   const KnowsPageContext = React.useContext(AppContext);
+  const [article,setArticle] = useState({});
+  const [show,setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  function handleClick(obj,e){
+    e.preventDefault();
+    setShow(true);
+    setArticle(obj);
+  }
+
   return (
     <div>
       {[...KnowsPageContext.articles].map((obj,i)=>{
         return <div>
-          {console.log('что прошло')}
           <div className='bg-secondary py-4'>
             <Container className='knows_page_article_header'>
-              <span>Статья {obj.number} {obj.title}</span>
+              <a href="" onClick={(e)=>handleClick(obj,e)}><span>Статья {obj.number} {obj.title}</span></a>
             </Container>
           </div>
             <Container className=''>
@@ -19,6 +30,18 @@ const KnowsPage = () => {
             </Container>
         </div>
       })}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{article.number} {article.title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{article.text}</Modal.Body>
+        <Modal.Footer>
+          <div>дата публикации: {article.date}</div>
+          <Button variant="primary" onClick={handleClose}>
+            Закрыть
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }
