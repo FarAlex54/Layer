@@ -18,6 +18,7 @@ function App() {
     /* Определение размеров экрана для вычисления ориентации окна браузера */
         const [pageWidth, setPageWidth] = useState(document.documentElement.scrollWidth);
         const [pageHeight, setPageHeight] = useState(document.documentElement.scrollHeight);
+  const [isAuthenticated,setIsAuthenticated] = useState(false);
   const [services, setServices] = useState([
     {
       id: 1,

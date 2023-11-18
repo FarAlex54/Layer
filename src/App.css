@@ -2,6 +2,9 @@
     font-family: Roboto;
     src: url('../public/fonts/Roboto.ttf');
 }
+body{
+    overflow-x: hidden;
+}
 /* Стили для карусели с Пакетами услуг */
 .carus {
     display:flex;
