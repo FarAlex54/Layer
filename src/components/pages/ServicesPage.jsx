@@ -5,6 +5,7 @@ import { AppContext } from '../../App';
 import CardForServices from '../cards/CardForServices';
 import Stocks from '../Stocks';
 import Packages from '../Packages';
+import PackagesNew from '../PackagesNew';
 
 
 const ServicesPage = () => {
@@ -29,7 +30,8 @@ const ServicesPage = () => {
         </Container>
       </div>
       <Stocks/>
-      <Packages/>
+      {/* <Packages/> */}
+      <PackagesNew/>
     </div>
   )
 }

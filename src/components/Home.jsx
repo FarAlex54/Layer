@@ -14,7 +14,7 @@ const Home = () => {
         <Services/>
         <InfoCommand/>
         <PackagesNew/>
-        <Packages/>
+        {/* <Packages/> */}
         <Stocks/>
         <GeoLocation />
     </div>

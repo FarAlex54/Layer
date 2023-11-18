@@ -15,8 +15,7 @@ import ContactsPage from './components/pages/ContactsPage';
 
 export const AppContext = React.createContext({});
 function App() {
-    /* Определение размеров экрана для вычисления ориентации окна браузера
-  и определения размеров начальной области поиска отделений */
+    /* Определение размеров экрана для вычисления ориентации окна браузера */
         const [pageWidth, setPageWidth] = useState(document.documentElement.scrollWidth);
         const [pageHeight, setPageHeight] = useState(document.documentElement.scrollHeight);
   const [services, setServices] = useState([
@@ -75,46 +74,45 @@ function App() {
   ]);//хук хранит инфу об Услугах
   const [packages, setPackages] = useState([
     {
-      "id": 1,
-      "name": "Старт",
-"price": "7000 руб / мес",
-      "description": "Профессиональный тарифный план",
-"include": [
-  "Сдача отчетности",
-  "ФНС"],
-"uninclude": [
-   "ПФР",
-  "Безлимитные консультации",
-  "Регламентные задания"]
-  },
-  {
-      "id": 2,
-      "name": "Старт+",
-"price": "12000 руб / мес",
-      "description": "Профессиональный тарифный план",
-"include": [
-  "Сдача отчетности",
-  "ФНС",
-  "ПФР"
-  ],
-"uninclude": [
-  "Безлимитные консультации",
-  "Регламентные задания"]
-  },
-  {
-      "id": 3,
-      "name": "Все включено",
-"price": "15000 руб / мес",
-      "description": "Профессиональный тарифный план",
-"include": [
-  "Сдача отчетности",
-  "ФНС",
-  "ПФР",
-  "Безлимитные консультации",
-  "Регламентные задания"
-  ],
-"uninclude": []
-  }
+      id: 1,
+      name: "Старт",
+      price: "7000 руб / мес",
+      description: "Профессиональный тарифный план",
+        include: [
+                      "Сдача отчетности",
+                      "ФНС"],
+        uninclude: [
+                      "ПФР",
+                      "Безлимитные консультации",
+                      "Регламентные задания"]
+    },
+    {
+      id: 2,
+      name: "Старт+",
+      price: "12000 руб / мес",
+      description: "Профессиональный тарифный план",
+          include: [
+                      "Сдача отчетности",
+                      "ФНС",
+                      "ПФР"],
+          uninclude: [
+                      "Безлимитные консультации",
+                      "Регламентные задания"]
+    },
+    {
+      id: 3,
+      name: "Все включено",
+      price: "15000 руб / мес",
+      description: "Профессиональный тарифный план",
+          include: [
+                      "Сдача отчетности",
+                      "ФНС",
+                      "ПФР",
+                      "Безлимитные консультации",
+                      "Регламентные задания"
+                    ],
+          uninclude: []
+    }
   ]);//хук хранит инфу об Пакетах
   const [contacts, setContacts] = useState([
     {

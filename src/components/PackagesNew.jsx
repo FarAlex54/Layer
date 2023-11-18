@@ -2,17 +2,12 @@ import React, {useState, useEffect} from 'react'
 import { gsap } from 'gsap/dist/gsap';
 import CardForPackages from './cards/CardForPackages';
 import { AppContext } from '../App';
+import Button from 'react-bootstrap/esm/Button';
 
 
 const PackagesNew = () => {
     const PackagesContext = React.useContext(AppContext);
-    const [kolvo,setKolvo] = useState([
-        {id:'11'},
-        {id:'22'},
-        {id:'33'},
-        {id:'44'},
-        {id:'55'}
-    ]);
+    const [kolvo,setKolvo] = useState(PackagesContext.packages)
 
     useEffect(()=>{
         const cardsNumbs = kolvo.length;//Количество карточек
@@ -73,7 +68,7 @@ const PackagesNew = () => {
             .to('.card_carus', {
                 x: xPos(cardsNumbs)*currentCard,//центрирование фокусированной карточки
                 y:(i)=>(i===currentCard)?0:15,//вертикальное выравнивание второстепенных карточек
-                height:(i)=>(i===currentCard)?270:240,//высота активной/пассивной карточки
+                height:(i)=>(i===currentCard)?100+'%':100+'%',//высота активной/пассивной карточки
                 ease:'elastic.out(0.4)'//gsap дрыгалка
             }, 0)
             .to('.card_carus', {//рамочка, тенюшка, прозрачность и тд выбранной карточки
@@ -89,10 +84,6 @@ const PackagesNew = () => {
             .to('.arrow-btn-next', { //гасим кнопки при границах списка карточек
                 autoAlpha:(currentCard===cardsNumbs-1)?0:1
             }, 0)
-            .to('.card_carus h4', { // анимация заголовка h4
-                y:(i)=>(i===currentCard)?10:8,    
-                opacity:(i)=>(i===currentCard)?1:0,
-            }, 0)
         }
         moveCards()        
     })
@@ -100,24 +91,20 @@ const PackagesNew = () => {
     <div className='carus'>
         <div className='name_block_dark px-5 align-self-start flex-fill' style={{width:'100%'}}>Пакеты услуг</div>
         <div className='cards_carus-wrapper'>
-            <div className='cards_carus'>
-                {[...kolvo].map((obj,i)=>{
-                    return  <button className='card_carus card1' tabindex="-1">
-                                <h2>{obj.id}</h2>
+            <div className='cards_carus' >
+                    {[...Array(Object.keys(PackagesContext.packages).length)].map((obj,i)=>{
+                    return  <button className='card_carus' tabindex="-1">
+                                <CardForPackages
+                                    id={PackagesContext.packages[i].id}
+                                    name={PackagesContext.packages[i].name}
+                                    price={PackagesContext.packages[i].price}
+                                    description={PackagesContext.packages[i].description}
+                                    include={PackagesContext.packages[i].include}
+                                    uninclude={PackagesContext.packages[i].uninclude}
+                                />
                             </button>
                 })}
-{/*                 <button className='card_carus card1' tabindex="-1">
-                    <h2>Пакет 1</h2>
-                </button>
-                <button className='card_carus card2' tabindex="-1">
-                    <h2>Пакет 2</h2>
-                </button>
-                <button className='card_carus card3' tabindex="-1">
-                    <h4>Пакет 3</h4>
-                    <p>asd</p>
-                    <h4>Пакет 3</h4>
-                </button> */}
-
+                
             </div>
             <button className="arrow-btn arrow-btn-prev" tabindex="0">
             </button>
