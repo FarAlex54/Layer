@@ -42,8 +42,21 @@ body{
     width:100vw;
     /* min-width: 900px; */ /* это насколько можно сжимать расстояние между карточками */
     justify-content:space-around;
-/*     background: red; */
+    background: red;
+    @media only screen and (min-width: 800px) and (max-width: 899px) {
+        gap: 101px;
+      }
+    @media only screen and (min-width: 700px) and (max-width: 799px) {
+        gap: 48px;
 
+      }
+    @media only screen and (min-width: 600px) and (max-width: 699px) {
+        gap: 0px;
+      }
+    @media only screen and (min-width: 500px) and (max-width: 599px) {
+        gap: 0px;
+
+      }      
 } 
   .card_carus {/* сама активная карточка */
     width:220px;
