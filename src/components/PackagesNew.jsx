@@ -64,9 +64,12 @@ const PackagesNew = () => {
                     return -270;
              }
             }
+                console.log('currentCard= ',currentCard);console.log('PackagesContext.pageWidth= ',PackagesContext.pageWidth);
+                console.log('cards_carus= ',PackagesContext.pageWidth/2+110);
+                console.log('kolvo.length= ',kolvo.length);
             gsap.timeline({defaults:{ duration:dur, ease:'power3', stagger:{each:-0.03*dir} }})
             .to('.card_carus', {
-                x: xPos(cardsNumbs)*currentCard,//центрирование фокусированной карточки
+                x: (i)=>(i===currentCard)? -(PackagesContext.pageWidth/2-110)*currentCard:-(PackagesContext.pageWidth/2-110)*currentCard,
                 y:(i)=>(i===currentCard)?0:15,//вертикальное выравнивание второстепенных карточек
                 height:(i)=>(i===currentCard)?100+'%':100+'%',//высота активной/пассивной карточки
                 ease:'elastic.out(0.4)'//gsap дрыгалка

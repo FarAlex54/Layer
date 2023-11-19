@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
 import { AppContext } from '../App';
 import Modal from 'react-bootstrap/Modal';
+import SignLogin from './pages/SignLogin';
 
 function Header() {
   const HeaderContext = React.useContext(AppContext);
@@ -44,16 +45,7 @@ function Header() {
           </Container>
       </div> 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title></Modal.Title>
-        </Modal.Header>
-        <Modal.Body></Modal.Body>
-        <Modal.Footer>
-          <div></div>
-          <Button variant="primary" onClick={handleClose}>
-            Закрыть
-          </Button>
-        </Modal.Footer>
+       <SignLogin/>
       </Modal> 
     </Navbar>
   )

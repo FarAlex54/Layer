@@ -228,7 +228,7 @@ function App() {
   else{
   return (
     <AppContext.Provider
-      value={{services, packages, contacts, pageWidth, setPageWidth, articles, setArticles}}>
+      value={{services, packages, contacts, pageWidth, setPageWidth, articles, setArticles, isAuthenticated,setIsAuthenticated}}>
       <div>
         <Router>
           <Header/>
