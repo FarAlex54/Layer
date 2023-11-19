@@ -6,6 +6,7 @@ import Packages from './Packages';
 import Stocks from './Stocks';
 import GeoLocation from './GeoLocation';
 import PackagesNew from './PackagesNew';
+import PackagesNewTwo from './PackagesNewTwo';
 
 const Home = () => {
   return (
@@ -13,8 +14,9 @@ const Home = () => {
         <Banner/>
         <Services/>
         <InfoCommand/>
-        <PackagesNew/>
+        {/* <PackagesNew/> */}
         {/* <Packages/> */}
+        <PackagesNewTwo/>
         <Stocks/>
         <GeoLocation />
     </div>

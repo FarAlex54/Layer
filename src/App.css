@@ -5,22 +5,24 @@
 body{
     overflow-x: hidden;
 }
+
 /* Стили для карусели с Пакетами услуг */
-.carus {
+  .body_packages {
     display:flex;
     align-items:center;
     justify-content:center;
     flex-direction:column;
     background:#444856;
+    /* gap:30px; */
   }
-.cards_carus-wrapper {
+  .cards-wrapper {
     width:100%;
     height:500px;
     max-width:100vw;
     overflow-x:hidden;
     position:relative;
-}
-.cards_carus-wrapper::after {
+  }
+  .cards-wrapper::after {
     content:'';
     display:block;
     position:absolute;
@@ -31,49 +33,31 @@ body{
     background:linear-gradient(90deg, #82848d 0%, #ffffff00 30%, #ffffff00 70%, #82848d 100%);
     pointer-events:none;
   }
-.cards_carus {
+  .cards {
     position:absolute;
     top:15px;
     left:50%;
-
     transform:translateX(-110px);
     display:flex;
     flex-direction:row;
-    width:100vw;
-    /* min-width: 900px; */ /* это насколько можно сжимать расстояние между карточками */
-    justify-content:space-around;
-    background: red;
-    @media only screen and (min-width: 800px) and (max-width: 899px) {
-        gap: 101px;
-      }
-    @media only screen and (min-width: 700px) and (max-width: 799px) {
-        gap: 48px;
-
-      }
-    @media only screen and (min-width: 600px) and (max-width: 699px) {
-        gap: 0px;
-      }
-    @media only screen and (min-width: 500px) and (max-width: 599px) {
-        gap: 0px;
-
-      }      
-} 
-  .card_carus {/* сама активная карточка */
+   /*  width: 1040px;  */    /*  это для 4ех карточек  шаг по 260px */
+    /* width:1300px; */ /*  это для 5ти карточек  шаг по 260px */
+    /* width: 780px; */ /* это для 3ех карточек т.е. нужно умножить колво карточек на 260*/
+    /* width: 1820px; */
+    justify-content:space-between;
+  }
+  .card_packages {
     width:220px;
-    /* height:100%; */
-    padding: 0 0% 0 0%;
-    flex-shrink: 0;
-    border-radius:10px;
+    height:260px;
+    border-radius:14px;
     border:none;
     font-family: Roboto;
+    letter-spacing:0.5px;
     display:inline;
     cursor:pointer;
     box-sizing:border-box;
     color:#000;
   }
-  .text_footer{
-    font-size:0.8em;
-  }   
   .arrow-btn {
     width:40px;
     height:40px;
@@ -87,7 +71,7 @@ body{
     transform:translateY(-50%);
     z-index:1000;
     cursor:pointer;
-  } 
+  }
   .arrow-btn-next {
     left:auto;
     right:20px;
