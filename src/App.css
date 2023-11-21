@@ -5,6 +5,12 @@
 body{
     overflow-x: hidden;
 }
+/* Стили для формы входа/регистрации */
+
+.modal-content {
+    background-color: rgba(0,0,255,0.2) !important;
+    border: 0px !important
+}
 
 /* Стили для карусели с Пакетами услуг */
   .body_packages {
@@ -40,10 +46,6 @@ body{
     transform:translateX(-110px);
     display:flex;
     flex-direction:row;
-   /*  width: 1040px;  */    /*  это для 4ех карточек  шаг по 260px */
-    /* width:1300px; */ /*  это для 5ти карточек  шаг по 260px */
-    /* width: 780px; */ /* это для 3ех карточек т.е. нужно умножить колво карточек на 260*/
-    /* width: 1820px; */
     justify-content:space-between;
   }
   .card_packages {

@@ -189,7 +189,35 @@ function App() {
     }
   ]);//хук хранит инфу о статьях
   const [stocks, setStocks] = useState([]);//хук хранит инфу об акциях
-  const [users, setUsers] = useState([]);//хук хранит инфу о пользователях
+  const [users, setUsers] = useState([
+    {
+      id:1,
+      name: "Виталий",
+      login: "Vital",
+      password: "qwe",
+      email: "vital@mail.ru",
+      phone: 89999999999,
+      role: "user"
+    },
+    {
+      id:2,
+      name:"Сергей",
+      login:"Serg",
+      password: "qwe",
+      email: "serg@mail.ru",
+      phone: 89999998888,
+      role: "user"
+    },
+    {
+      id:3,
+      name:"Владыка",
+      login:"owner",
+      password: "admin",
+      email: "serg@mail.ru",
+      phone: 89999998888,
+      role: "admin"
+    },
+]);//хук хранит инфу о пользователях
 
   window.onload = function() { 
     setPageWidth(window.innerWidth);
@@ -216,14 +244,7 @@ function App() {
     axiosPackages();
     axiosContacts();
   }, []); */
-/*   console.log('Services:',services); */
-/*   console.log('Packages:',packages);
-  console.log('Contacts:',contacts); */
-/*   console.log('articles: ', articles); */
-/*   console.log('Контакты: ',contacts.length) */
-/*   console.log("services: ",services.length);
-  console.log("packages: ",packages.length); */
-/*   if (isLoading) {return <div className="App">Loading...</div>;} */
+
   if (services.length===0 && packages.length===0 && contacts.length===0) {return <div className="App">Loading...</div>;}
   else{
   return (

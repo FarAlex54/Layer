@@ -44,8 +44,11 @@ function Header() {
             </Navbar.Collapse>
           </Container>
       </div> 
-      <Modal show={show} onHide={handleClose}>
-       <SignLogin/>
+
+      <Modal className='' size="lg" aria-labelledby="contained-modal-title-vcenter" centered show={show} onHide={handleClose}>
+        <Modal.Body className=''>
+          <SignLogin className=''/>
+        </Modal.Body>
       </Modal> 
     </Navbar>
   )

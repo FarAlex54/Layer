@@ -6,12 +6,10 @@ import CardForPackages from './cards/CardForPackages';
 const PackagesNewTwo = () => {
     const PackagesContext = React.useContext(AppContext);
     const widthCards ={width:(PackagesContext.packages.length*260)+'px'}
-    console.log('widthCards= ', widthCards); 
     useEffect(()=>{
         const arrowBtns = document.querySelectorAll('.arrow-btn')
         const cardBtns = document.querySelectorAll('.card_packages')
         let currentCard = (PackagesContext.packages.length)%2>0? (PackagesContext.packages.length-1)/2:PackagesContext.packages.length/2-1;
-  /*       let widthCards = {width:PackagesContext.packages.length*260+'px'} */
         let dir = 1;
         moveCards()
         arrowBtns.forEach((btn,i)=>{
@@ -72,7 +70,7 @@ const PackagesNewTwo = () => {
             autoAlpha:(currentCard===0)?0:1
             }, 0)
             .to('.arrow-btn-next', {
-            autoAlpha:(currentCard===4)?0:1
+            autoAlpha:(currentCard===PackagesContext.packages.length-1)?0:1
             }, 0)
         }
     })          
@@ -93,16 +91,6 @@ const PackagesNewTwo = () => {
                                 />
                             </button>
                 })}
-{/*                 <button className='card_packages' tabindex="-1">
-                </button>
-                <button className='card_packages' tabindex="-1">  
-                </button>
-                <button className='card_packages' tabindex="-1"> 
-                </button> */}
-     {/*            <button className='card_packages card4' tabindex="-1"> 
-                </button>
-                <button className='card_packages card5' tabindex="-1">   
-                </button> */}
             </div>
             <button class="arrow-btn arrow-btn-prev" tabindex="0">
             </button>

@@ -4,8 +4,7 @@ import Container from 'react-bootstrap/Container';
 import { AppContext } from '../../App';
 import CardForServices from '../cards/CardForServices';
 import Stocks from '../Stocks';
-import Packages from '../Packages';
-import PackagesNew from '../PackagesNew';
+import PackagesNewTwo from '../PackagesNewTwo';
 
 
 const ServicesPage = () => {
@@ -30,8 +29,7 @@ const ServicesPage = () => {
         </Container>
       </div>
       <Stocks/>
-      {/* <Packages/> */}
-      <PackagesNew/>
+      <PackagesNewTwo/>
     </div>
   )
 }
