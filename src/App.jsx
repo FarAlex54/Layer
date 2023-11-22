@@ -12,6 +12,7 @@ import ServicesPage from './components/pages/ServicesPage';
 import KnowsPage from './components/pages/KnowsPage';
 import AboutPage from './components/pages/AboutPage';
 import ContactsPage from './components/pages/ContactsPage';
+import Banner from './components/Banner'
 
 export const AppContext = React.createContext({});
 function App() {
@@ -252,7 +253,7 @@ function App() {
       value={{services, packages, contacts, pageWidth, setPageWidth, articles, setArticles, isAuthenticated,setIsAuthenticated}}>
       <div>
         <Router>
-          <Header/>
+            <Header className='header'/>
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/services' element={<ServicesPage/>}/>

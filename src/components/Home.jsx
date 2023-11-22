@@ -9,7 +9,7 @@ import PackagesNewTwo from './PackagesNewTwo';
 const Home = () => {
   return (
     <div>
-        <Banner/>
+        <Banner />
         <Services/>
         <InfoCommand/>
         <PackagesNewTwo/>

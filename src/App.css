@@ -5,6 +5,45 @@
 body{
     overflow-x: hidden;
 }
+/* Стили для банера */
+.banner{
+    position: absolute;
+    top:0;
+    z-index:0;
+    width: 100%;
+    
+}
+.carusel_caption{
+    top:35%;
+}
+.carusel_h1{
+    color: #FFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Roboto;
+    font-size: 35pt;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.carusel_p{
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Roboto;
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+/* Стили для хедера */
+.header{
+    position: relative;
+    top:0;
+    width: 100%;
+    height: 49vw;
+    z-index:1;
+}
 /* Стили для формы входа/регистрации */
 
 .modal-content {
@@ -123,6 +162,9 @@ body{
 }
 
 
+
+
+/* Пока не помню для чего стили */
 .services_card{
     border-radius: 10px;
     border: 1px solid;

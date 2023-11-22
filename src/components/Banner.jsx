@@ -1,36 +1,64 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
-import Button from 'react-bootstrap/esm/Button';
+import {motion} from 'framer-motion';
 
 
 const Banner = () => {
   return (
-    <Carousel slide={false} indicators={false}>
+    <div className='banner'>
+    <Carousel fade controls={false} indicators={false}>
       <Carousel.Item>
-        <img style={{height:768}} src="/img/AdobeStock_473013000 1.png" alt="" />
-        <Carousel.Caption>
-          <h1>Бухгалтер / Финансист / Юрист / Аудитор</h1>
-          <p>надежный опыт с 2004 года для оперативного решения нестандартных и сложных задач</p>
-          <Button>Наши услуги</Button>
+        <motion.img
+          src="/img/banner1.jpg"
+          style={{width:'100%', height:'49vw'}}
+          alt=""
+          initial={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 1, scale: 1.2 }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            repeatDelay:0
+          }}
+          exit={{ opacity: 1 }}
+         />
+        <Carousel.Caption className='carusel_caption'>
+          <div className='d-flex row' style={{height:'100%'}}>
+            <div className='col-auto'>
+              <h1 className='carusel_h1'>Бухгалтер / Финансист / Юрист / Аудитор</h1>
+            </div>
+            <div>
+              <p className='carusel_p'>надежный опыт с 2004 года для оперативного решения нестандартных и сложных задач</p>
+            </div>
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img style={{height:768}} src="/img/AdobeStock_473013000 1.png" alt="" />
-        <Carousel.Caption>
-          <h1>Бухгалтер / Финансист / Юрист / Аудитор</h1>
-          <p>надежный опыт с 2004 года для оперативного решения нестандартных и сложных задач</p>
-          <Button>Наши услуги</Button>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img style={{height:768}} src="/img/AdobeStock_473013000 1.png" alt="" />
-        <Carousel.Caption>
-          <h1>Бухгалтер / Финансист / Юрист / Аудитор</h1>
-          <p>надежный опыт с 2004 года для оперативного решения нестандартных и сложных задач</p>
-          <Button>Наши услуги</Button>
+        <motion.img
+            src="/img/banner2.jpg"
+            style={{width:'100%', height:'49vw'}}
+            alt=""
+            initial={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: 1, scale: 1.2 }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              repeatDelay:0
+            }}
+            exit={{ opacity: 1 }}
+          />
+        <Carousel.Caption className='carusel_caption'>
+          <div className='d-flex row' style={{height:'100%'}}>
+            <div className='col-auto'>
+              <h1 className='carusel_h1'>Бухгалтер / Финансист / Юрист / Аудитор</h1>
+            </div>
+            <div>
+              <p className='carusel_p'>надежный опыт с 2004 года для оперативного решения нестандартных и сложных задач</p>
+            </div>
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    </div>
   )
 }
 
