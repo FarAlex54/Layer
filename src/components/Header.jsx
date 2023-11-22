@@ -26,7 +26,7 @@ function Header() {
   }
   return (
     <div className='header'> 
-    <Navbar expand="lg">
+    <Navbar expand="lg">{/* Надо разобраться с лого */}
       <div className='' style={{width:'320px'}}>
         <Navbar.Brand className=''>
           <Link className='px-5' to={'/'}>
