@@ -28,7 +28,11 @@ function Header() {
     <div className='header'> 
     <Navbar expand="lg">
       <div className='' style={{width:'320px'}}>
-        <Navbar.Brand><Link className='px-5' to={'/'}><img className='' src="/img/Logowhite.png" alt="" /></Link></Navbar.Brand>
+        <Navbar.Brand className=''>
+          <Link className='px-5' to={'/'}>
+            <img className='img-fluid' src="/img/Logowhite.png" alt="" />
+          </Link>
+        </Navbar.Brand>
       </div>
       <div className='col-10 col-xl-9 col-lg-8 col-md-10 col-sm-10'>  
           <Container className=''>
