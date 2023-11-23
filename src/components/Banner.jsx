@@ -1,26 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import {motion} from 'framer-motion';
 
 
 const Banner = () => {
+  const [changeSlide,setChangeSlide] = useState(1);
+
   return (
     <div className='banner'>
-    <Carousel fade controls={false} indicators={false}>
+    <Carousel
+      /* fade */
+      slide={false}
+      controls={false}
+      indicators={false}
+      interval={4000}
+      onSlid={()=>(changeSlide===1)? setChangeSlide(2):setChangeSlide(1)}
+      
+      >
       <Carousel.Item>
         <motion.img
+          key={changeSlide}
           src="/img/banner1.jpg"
           style={{width:'100%', height:'49vw'}}
           alt=""
-          initial={{ opacity: 1, scale: 1 }}
-          animate={{ opacity: 1, scale: 1.2 }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatDelay:0
-          }}
-          exit={{ opacity: 1 }}
-         />
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.3}}
+          transition={{duration: 5}}
+        />
         <Carousel.Caption className='carusel_caption'>
           <div className='d-flex row' style={{height:'100%'}}>
             <div className='col-auto'>
@@ -34,18 +40,14 @@ const Banner = () => {
       </Carousel.Item>
       <Carousel.Item>
         <motion.img
-            src="/img/banner2.jpg"
-            style={{width:'100%', height:'49vw'}}
-            alt=""
-            initial={{ opacity: 1, scale: 1 }}
-            animate={{ opacity: 1, scale: 1.2 }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              repeatDelay:0
-            }}
-            exit={{ opacity: 1 }}
-          />
+          key={changeSlide}
+          src="/img/banner2.jpg"
+          style={{width:'100%', height:'49vw'}}
+          alt=""
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.3}}
+          transition={{duration: 5 }}
+        />
         <Carousel.Caption className='carusel_caption'>
           <div className='d-flex row' style={{height:'100%'}}>
             <div className='col-auto'>
