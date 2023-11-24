@@ -20,42 +20,42 @@ function Header() {
     let button_position={
       position: '',
       right: ''}
-    if (HeaderContext.pageWidth>991) {button_position = {position: 'absolute',
-    right: '-5px'}}
+    if (HeaderContext.pageWidth>991) {button_position = {position: 'absolute', right: '-5px'}}
     return button_position;
   }
   return (
-    <div className='header'> 
-    <Navbar expand="lg">{/* Надо разобраться с лого */}
-      <div className='' style={{width:'10%'}}>
-        <Navbar.Brand className=''>
-          <Link className='px-5' to={'/'}>
-            <img className='img-fluid' src="/img/Logowhite.png" alt="" />
-          </Link>
-        </Navbar.Brand>
-      </div>
-      <div className='col-10 col-xl-9 col-lg-8 col-md-10 col-sm-10'>  
-          <Container className=''>
-            <Navbar.Toggle className='mt-4 bg-light' style={{opacity:"0.5"}}aria-controls="basic-navbar-nav"/>
-            <Navbar.Collapse id="basic-navbar-nav">
-                  <Nav className='d-flex justify-content-around w-75'>
-                    <Nav.Link><Link className='header_text text-white' to={'/'}>Главная</Link></Nav.Link>
-                    <Nav.Link><Link className='header_text text-white' to={'/services'}>Услуги</Link></Nav.Link>
-                    <Nav.Link><Link className='header_text text-white' to={'/knows'}>База знаний</Link></Nav.Link>
-                    <Nav.Link><Link className='header_text text-white' to={'/about'}>О нас</Link></Nav.Link>
-                    <Nav.Link><Link className='header_text text-white' to={'/contacts'}>Контакты</Link></Nav.Link>
-                  </Nav>
-                  <Button className='' size='lg' variant='primary' style={container()} onClick={(e)=>handleClick(e)}>Личный кабинет</Button>
-            </Navbar.Collapse>
-          </Container>
-      </div> 
+    <div className='header'>
+        <Navbar className='d-flex row' expand="lg">
+            <div className='col-3 col-xl-2 col-lg-2 col-md-2 col-sm-3 px-xl-5 px-sm-4 px-3'>
+              <Navbar.Brand className=''style={{width:'100%'}}>
+                <Link className='' to={'/'}>
+                  <img className='img-fluid' src="/img/Logowhite.png" alt="" />
+                </Link>
+              </Navbar.Brand>
+            </div>
+            <div className='col-10 col-xl-9 col-lg-8 col-md-10 col-sm-9'>  
+                <Container className=''>
+                  <Navbar.Toggle className='mt-4 bg-light' style={{opacity:"0.5"}}aria-controls="basic-navbar-nav"/>
+                  <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className='d-flex justify-content-around w-75'>
+                          <Nav.Link><Link className='header_text text-white' to={'/'}>Главная</Link></Nav.Link>
+                          <Nav.Link><Link className='header_text text-white' to={'/services'}>Услуги</Link></Nav.Link>
+                          <Nav.Link><Link className='header_text text-white' to={'/knows'}>База знаний</Link></Nav.Link>
+                          <Nav.Link><Link className='header_text text-white' to={'/about'}>О нас</Link></Nav.Link>
+                          <Nav.Link><Link className='header_text text-white' to={'/contacts'}>Контакты</Link></Nav.Link>
+                        </Nav>
+                        <Button className='' size='lg' variant='primary' style={container()} onClick={(e)=>handleClick(e)}>Личный кабинет</Button>
+                  </Navbar.Collapse>
+                </Container>
+            </div>
 
+        </Navbar>
+      
       <Modal className='' size="lg" aria-labelledby="contained-modal-title-vcenter" centered show={show} onHide={handleClose}>
-        <Modal.Body className=''>
-          <SignLogin className=''/>
-        </Modal.Body>
+          <Modal.Body className=''>
+            <SignLogin className=''/>
+          </Modal.Body>
       </Modal> 
-    </Navbar>
     </div>
   )
 }

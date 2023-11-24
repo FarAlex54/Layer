@@ -46,6 +46,10 @@ body{
     height: 49vw;
     z-index:1;
 }
+.colapse{
+    /* background: rgba(138, 51, 51, 0.5) */
+    
+}
 /* Стили для формы входа/регистрации */
 
 .modal-content {

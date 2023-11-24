@@ -219,15 +219,17 @@ function App() {
       role: "admin"
     },
 ]);//хук хранит инфу о пользователях
-
+  const [isLoadingImg,setIsLoadingImg] = useState(false);
   window.onload = function() { 
     setPageWidth(window.innerWidth);
   }; 
   window.onresize = function() { 
     setPageWidth(window.innerWidth);
   };
+/* useEffect((=>{
 
-
+}))
+ */
 /*   useEffect(() => {
     async function axiosServices(){
       await axios.get('http://192.168.2.200:3001/services/')
@@ -245,13 +247,18 @@ function App() {
     axiosPackages();
     axiosContacts();
   }, []); */
+  
 
-  if (services.length===0 && packages.length===0 && contacts.length===0) {return <div className="App">Loading...</div>;}
+  if (services.length===0 && packages.length===0 && contacts.length===0 && isLoadingImg===true) {return <div className="App">Loading...</div>;}
   else{
   return (
     <AppContext.Provider
-      value={{services, packages, contacts, pageWidth, setPageWidth, articles, setArticles, isAuthenticated,setIsAuthenticated}}>
-      <div>
+      value={{services, packages, contacts,
+              pageWidth, setPageWidth,
+              articles, setArticles,
+              isAuthenticated,setIsAuthenticated,
+              isLoadingImg,setIsLoadingImg}}>
+      <div className='user-select-none'>
         <Router>
             <Header className='header'/>
             <Routes>
