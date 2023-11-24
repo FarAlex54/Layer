@@ -15,8 +15,7 @@ const Banner = () => {
       controls={false}
       indicators={false}
       interval={4000}
-      onSlid={()=>(changeSlide===1)? setChangeSlide(2):setChangeSlide(1)}
-      onLoad={() => BannerContext.setIsLoadingImg(true)} /* При полной загрузке картинки */      
+      onSlid={()=>(changeSlide===1)? setChangeSlide(2):setChangeSlide(1)}    
       >
       <Carousel.Item>
         <motion.img
@@ -27,6 +26,7 @@ const Banner = () => {
           initial={{ scale: 1 }}
           animate={{ scale: 1.3}}
           transition={{duration: 5}}
+          onLoad={() => BannerContext.setIsLoadingImg(true)} /* При полной загрузке картинки */  
         />
         <Carousel.Caption className='carusel_caption'>
           <div className='d-flex row' style={{height:'100%'}}>
