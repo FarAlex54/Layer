@@ -16,17 +16,19 @@ const Banner = () => {
       indicators={false}
       interval={4000}
       onSlid={()=>(changeSlide===1)? setChangeSlide(2):setChangeSlide(1)}    
+      onLoad={() => console.log('загрузилось')} /* При полной загрузке картинки */      
       >
       <Carousel.Item>
         <motion.img
           key={changeSlide}
-          src="/img/banner1.jpg"
+          images
+/*           src="/img/banner1.jpg" */
+          src={BannerContext.images[0]}
           style={{width:'100%', height:'49vw'}}
           alt=""
           initial={{ scale: 1 }}
           animate={{ scale: 1.3}}
           transition={{duration: 5}}
-          onLoad={() => BannerContext.setIsLoadingImg(true)} /* При полной загрузке картинки */  
         />
         <Carousel.Caption className='carusel_caption'>
           <div className='d-flex row' style={{height:'100%'}}>
@@ -42,7 +44,7 @@ const Banner = () => {
       <Carousel.Item>
         <motion.img
           key={changeSlide}
-          src="/img/banner2.jpg"
+          src={BannerContext.images[1]}
           style={{width:'100%', height:'49vw'}}
           alt=""
           initial={{ scale: 1 }}
@@ -63,7 +65,7 @@ const Banner = () => {
       <Carousel.Item>
         <motion.img
           key={changeSlide}
-          src="/img/banner3.jpg"
+          src={BannerContext.images[2]}
           style={{width:'100%', height:'49vw'}}
           alt=""
           initial={{ scale: 1 }}

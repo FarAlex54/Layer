@@ -14,8 +14,26 @@ import AboutPage from './components/pages/AboutPage';
 import ContactsPage from './components/pages/ContactsPage';
 import Banner from './components/Banner'
 
+
+
+
 export const AppContext = React.createContext({});
 function App() {
+  const [isLoadingImg,setIsLoadingImg] = useState([]);
+  const images = [
+    "/img/banner1.jpg",
+    "/img/banner2.jpg",
+    "/img/banner3.jpg"
+  ];
+  images.map((url) => (
+    <img
+      key={url}
+      src={url}
+      onLoad={() => setIsLoadingImg((prev) => [...prev, url])}
+      style={{ display: "none" }}
+    />
+  ))
+
     /* Определение размеров экрана для вычисления ориентации окна браузера */
         const [pageWidth, setPageWidth] = useState(document.documentElement.scrollWidth);
         const [pageHeight, setPageHeight] = useState(document.documentElement.scrollHeight);
@@ -219,37 +237,15 @@ function App() {
       role: "admin"
     },
 ]);//хук хранит инфу о пользователях
-  const [isLoadingImg,setIsLoadingImg] = useState(false);
   window.onload = function() { 
     setPageWidth(window.innerWidth);
   }; 
   window.onresize = function() { 
     setPageWidth(window.innerWidth);
   };
-/* useEffect((=>{
 
-}))
- */
-/*   useEffect(() => {
-    async function axiosServices(){
-      await axios.get('http://192.168.2.200:3001/services/')
-        .then(infoServices=>{setServices(infoServices.data);})
-    }
-    async function axiosPackages(){
-      await axios.get('http://192.168.2.200:3001/packages/')
-        .then(infoPackages=>{setPackages(infoPackages.data);})
-    }
-    async function axiosContacts(){
-      await axios.get('http://192.168.2.200:3001/contacts/')
-        .then(infoContacts=>{setContacts(infoContacts.data);})
-    }
-    axiosServices();
-    axiosPackages();
-    axiosContacts();
-  }, []); */
-  
-
-  if (services.length===0 && packages.length===0 && contacts.length===0 && isLoadingImg===true) {return <div className="App">Loading...</div>;}
+  /* if (services.length===0 || packages.length===0 || contacts.length===0) {return <div className="App">Loading...</div>;} */
+  if (isLoadingImg.length === images.length) {return <div className="App">Loading...</div>;}
   else{
   return (
     <AppContext.Provider
@@ -257,7 +253,7 @@ function App() {
               pageWidth, setPageWidth,
               articles, setArticles,
               isAuthenticated,setIsAuthenticated,
-              isLoadingImg,setIsLoadingImg}}>
+              isLoadingImg,setIsLoadingImg, images}}>
       <div className='user-select-none'>
         <Router>
             <Header className='header'/>
