@@ -21,7 +21,7 @@ const Banner = () => {
       <Carousel.Item>
         <motion.img
           key={changeSlide}
-          images
+/*           images */
 /*           src="/img/banner1.jpg" */
           src={BannerContext.images[0]}
           style={{width:'100%', height:'49vw'}}
