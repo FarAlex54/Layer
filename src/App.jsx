@@ -5,96 +5,77 @@ import Header from './components/Header';
 import SelfFooter from './components/SelfFooter';
 import Footer from './components/Footer';
 import {Route, Routes, BrowserRouter as Router} from 'react-router-dom';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Home from './components/Home';
 import ServicesPage from './components/pages/ServicesPage';
 import KnowsPage from './components/pages/KnowsPage';
 import AboutPage from './components/pages/AboutPage';
 import ContactsPage from './components/pages/ContactsPage';
-import Banner from './components/Banner'
-
-
 
 
 export const AppContext = React.createContext({});
 function App() {
-  const [isLoadingImg,setIsLoadingImg] = useState([]);
-  const images = [
-    "/img/banner1.jpg",
-    "/img/banner2.jpg",
-    "/img/banner3.jpg"
-  ];
-  images.map((url) => (
-    <img
-      key={url}
-      src={url}
-      onLoad={() => setIsLoadingImg((prev) => [...prev, url])}
-      style={{ display: "none" }}
-    />
-  ))
-
     /* Определение размеров экрана для вычисления ориентации окна браузера */
         const [pageWidth, setPageWidth] = useState(document.documentElement.scrollWidth);
         const [pageHeight, setPageHeight] = useState(document.documentElement.scrollHeight);
   const [isAuthenticated,setIsAuthenticated] = useState(false);
   const [services, setServices] = useState([
     {
-      id: 1,
-      name: "Управленческий учет",
-      description:
+      id_serv: 1,
+      name_serv: "Управленческий учет",
+      description_serv:
         [ "имеем практический опыт прохождения полного цикла выездных налоговых проверок",
           "добиваемся правовыми методами максимально приемлемых формулировок Акта ВНП",
           "пунктик просто для проверки, вдруг будут дополнять"],
-      "path": "/img/icons8-6.png"
+      path_serv: "/img/icons8-6.png"
   },
   {
-      id: 2,
-      name: "Экономическая безопасность",
-      description:
+      id_serv: 2,
+      name_serv: "Экономическая безопасность",
+      description_serv:
         [ "имеем практический опыт прохождения полного цикла выездных налоговых проверок"],
-      "path": "/img/icons8-2.png"
+      path_serv: "/img/icons8-2.png"
   },
   {
-      id: 3,
-      name: "Бухгалтерский аутсорсинг",
-      description: 
+      id_serv: 3,
+      name_serv: "Бухгалтерский аутсорсинг",
+      description_serv: 
         [ "имеем практический опыт прохождения полного цикла выездных налоговых проверок",
           "добиваемся правовыми методами максимально приемлемых формулировок Акта ВНП"],
-      "path": "/img/icons8-1.png"
+      path_serv: "/img/icons8-1.png"
   },
   {
-      id: 4,
-      name: "Налоговая оптимизация",
-      description:
+      id_serv: 4,
+      name_serv: "Налоговая оптимизация",
+      description_serv:
         [ "имеем практический опыт прохождения полного цикла выездных налоговых проверок",
           "добиваемся правовыми методами максимально приемлемых формулировок Акта ВНП",
           "пунктик просто для проверки, вдруг будут дополнять"],
-      "path": "/img/icons8-3.png"
+      path_serv: "/img/icons8-3.png"
   },
   {
-      id: 5,
-      name: "Налоговые проверки",
-      description:
+      id_serv: 5,
+      name_serv: "Налоговые проверки",
+      description_serv:
         [ "имеем практический опыт прохождения полного цикла выездных налоговых проверок",
           "добиваемся правовыми методами максимально приемлемых формулировок Акта ВНП",
           "пунктик просто для проверки, вдруг будут дополнять"],
-      "path": "/img/icons8-4.png"
+      path_serv: "/img/icons8-4.png"
   },
   {
-      id: 6,
-      name: "Обучение",
-      description:
+      id_serv: 6,
+      name_serv: "Обучение",
+      description_serv:
         [ "имеем практический опыт прохождения полного цикла выездных налоговых проверок",
           "добиваемся правовыми методами максимально приемлемых формулировок Акта ВНП",
           "пунктик просто для проверки, вдруг будут дополнять",
           "пунктик просто для проверки, вдруг будут дополнять"],
-      "path": "/img/icons8-5.png"
+      path_serv: "/img/icons8-5.png"
   }
   ]);//хук хранит инфу об Услугах
   const [packages, setPackages] = useState([
     {
-      id: 1,
+      id_: 1,
       name: "Старт",
       price: "7000 руб / мес",
       description: "Профессиональный тарифный план",
@@ -237,15 +218,15 @@ function App() {
       role: "admin"
     },
 ]);//хук хранит инфу о пользователях
+  const [themeHeader, setThemeHeader] = useState('dark');
   window.onload = function() { 
     setPageWidth(window.innerWidth);
   }; 
   window.onresize = function() { 
     setPageWidth(window.innerWidth);
   };
+  if (services.length===0 || packages.length===0 || contacts.length===0) {return <div className="App">Loading...</div>;}
 
-  /* if (services.length===0 || packages.length===0 || contacts.length===0) {return <div className="App">Loading...</div>;} */
-  if (isLoadingImg.length === images.length) {return <div className="App">Loading...</div>;}
   else{
   return (
     <AppContext.Provider
@@ -253,10 +234,12 @@ function App() {
               pageWidth, setPageWidth,
               articles, setArticles,
               isAuthenticated,setIsAuthenticated,
-              isLoadingImg,setIsLoadingImg, images}}>
+              themeHeader, setThemeHeader}}>
       <div className='user-select-none'>
         <Router>
-            <Header className='header'/>
+            <div className='header'>
+              <Header />
+            </div>
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/services' element={<ServicesPage/>}/>

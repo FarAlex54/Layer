@@ -5,8 +5,11 @@ import InfoCommand from './InfoCommand';
 import Stocks from './Stocks';
 import GeoLocation from './GeoLocation';
 import PackagesNewTwo from './PackagesNewTwo';
+import { AppContext } from '../App';
 
 const Home = () => {
+  const HomeContext = React.useContext(AppContext);
+  HomeContext.setThemeHeader('dark');
   return (
     <div>
         <Banner />

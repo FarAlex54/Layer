@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react'
 import { gsap } from 'gsap/dist/gsap';
 import { AppContext } from '../App';
 import CardForPackages from './cards/CardForPackages';
+import Button from 'react-bootstrap/esm/Button';
 
 const PackagesNewTwo = () => {
     const PackagesContext = React.useContext(AppContext);
@@ -80,7 +81,7 @@ const PackagesNewTwo = () => {
         <div className='cards-wrapper'>
             <div className='cards' style={widthCards}>
                 {[...Array(Object.keys(PackagesContext.packages).length)].map((obj,i)=>{
-                    return  <button className='card_packages' tabindex="-1">
+                    return  <button className='card_packages' tabIndex="-1">
                                 <CardForPackages
                                     id={PackagesContext.packages[i].id}
                                     name={PackagesContext.packages[i].name}
@@ -92,9 +93,9 @@ const PackagesNewTwo = () => {
                             </button>
                 })}
             </div>
-            <button class="arrow-btn arrow-btn-prev" tabindex="0">
+            <button className="arrow-btn arrow-btn-prev" tabIndex="0">
             </button>
-            <button class="arrow-btn arrow-btn-next" tabindex="0">
+            <button className="arrow-btn arrow-btn-next" tabIndex="0">
             </button>
         </div>
     </div> 

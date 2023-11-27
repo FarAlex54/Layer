@@ -16,19 +16,16 @@ const Banner = () => {
       indicators={false}
       interval={4000}
       onSlid={()=>(changeSlide===1)? setChangeSlide(2):setChangeSlide(1)}    
-      onLoad={() => console.log('загрузилось')} /* При полной загрузке картинки */      
       >
       <Carousel.Item>
         <motion.img
           key={changeSlide}
-/*           images */
-/*           src="/img/banner1.jpg" */
-          src={BannerContext.images[0]}
+          src="/img/banner1.jpg"
           style={{width:'100%', height:'49vw'}}
           alt=""
           initial={{ scale: 1 }}
-          animate={{ scale: 1.3}}
-          transition={{duration: 5}}
+          animate={{ scale: 1.2}}
+          transition={{duration: 7}}
         />
         <Carousel.Caption className='carusel_caption'>
           <div className='d-flex row' style={{height:'100%'}}>
@@ -44,12 +41,12 @@ const Banner = () => {
       <Carousel.Item>
         <motion.img
           key={changeSlide}
-          src={BannerContext.images[1]}
+          src="/img/banner2.jpg"
           style={{width:'100%', height:'49vw'}}
           alt=""
           initial={{ scale: 1 }}
-          animate={{ scale: 1.3}}
-          transition={{duration: 5 }}
+          animate={{ scale: 1.2}}
+          transition={{duration: 7 }}
         />
         <Carousel.Caption className='carusel_caption'>
           <div className='d-flex row' style={{height:'100%'}}>
@@ -65,12 +62,12 @@ const Banner = () => {
       <Carousel.Item>
         <motion.img
           key={changeSlide}
-          src={BannerContext.images[2]}
+          src="/img/banner3.jpg"
           style={{width:'100%', height:'49vw'}}
           alt=""
           initial={{ scale: 1 }}
-          animate={{ scale: 1.3}}
-          transition={{duration: 5 }}
+          animate={{ scale: 1.2}}
+          transition={{duration: 7 }}
         />
         <Carousel.Caption className='carusel_caption'>
           <div className='d-flex row' style={{height:'100%'}}>

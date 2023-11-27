@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/esm/Button';
 
 const CardForPackages = (props) => {
   return (
-    <div className=''>
+    <div className='mt-2 mb-3'>
       <div className=''><h4>{props.name}</h4></div>
       <div className='bg-info'><h4>{props.price}</h4></div>
       <div className=''>{props.description}</div><hr />
@@ -19,7 +19,7 @@ const CardForPackages = (props) => {
                             <span className='text-decoration-line-through text-secondary'>{props.uninclude[i]}</span>
                         </div>
       })}
-      <Button className='mt-2 mb-3' >Заказать</Button>  
+      <Button className='mt-2 mb-3' >Заказать</Button>
     </div>
   )
 }
