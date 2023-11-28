@@ -10,14 +10,15 @@ const Services = () => {
 /*   ServicesContext.setThemeHeader('light');
   console.log('ServicesContext.setThemeHeader = ',ServicesContext.themeHeader); */
   return (
-    <div className='bg-secondary'>
+    <div className='' style={{background:'#444856'}}>
       <Container className='d-flex flex-wrap justify-content-center'>
                     {[...Array(Object.keys(ServicesContext.services).length)].map((obj,i)=>{
-                      return <div className='col-xl-4 col-lg-4 col-md-5 col-sm-10 col-10 p-3'>
-                                <CardForServices
+                      return <div className='col-xl-4 col-lg-4 col-md-4 col-sm-5 col-5 p-sm-1 p-md-2 p-lg-3 p-1'>
+                                <CardForServices 
                                                   id={ServicesContext.services[i].id_serv}
                                                   name={ServicesContext.services[i].name_serv}
                                                   path={ServicesContext.services[i].path_serv}
+                                                  description={ServicesContext.services[i].description_serv}
                                   />
                              </div>
                     })}

@@ -2,30 +2,27 @@ import React from 'react'
 import Card from 'react-bootstrap/Card';
 import './../../App.css';
 import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
 
 
 const CardForServices = (props) => {
-    const [checkDesc,setCheckDesc] = useState((typeof props.description !== "undefined")? true:false);
-           
+          
   return (
-        <Card className='d-flex bg-secondary services_card pb-3' style={{height:'100%'}}>
-            <div className='row m-3'>
+        <Card className='d-flex bg-secondary' style={{height:'100%'}}>
+            <div className='row m-1'>
                 <div className='col-4 align-self-center'>
                     <img src={props.path} className='img-fluid' alt="" />
                 </div>
                 <div className='col-8 text-center align-self-center text-light'>
-                    <Card.Title className='card_for_services'>{props.name}</Card.Title>
+                        <span className='font_h'>{props.name}</span>
                 </div>
             </div>
             <div className='row mx-3'>
                     <ul className='ul'>
-                        {(checkDesc)? ([...props.description].map((obj,i)=><li>{obj}</li>)):''}
+                        {([...props.description].map((obj,i)=><li><span className='font_p'>{obj}</span></li>))}
                     </ul>
             </div>
-
-            <div className='row align-self-center' style={{height:'100%'}}>{(checkDesc)? 
-                <Button className='align-self-end'>Заказать</Button>:''}
+            <div className='row align-self-center pb-2' style={{height:'100%'}}> 
+                <Button className='align-self-end'>Заказать</Button>
             </div>
         </Card>
 

@@ -5,7 +5,7 @@ import Header from './components/Header';
 import SelfFooter from './components/SelfFooter';
 import Footer from './components/Footer';
 import {Route, Routes, BrowserRouter as Router} from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import Home from './components/Home';
 import ServicesPage from './components/pages/ServicesPage';
 import KnowsPage from './components/pages/KnowsPage';
@@ -17,7 +17,7 @@ export const AppContext = React.createContext({});
 function App() {
     /* Определение размеров экрана для вычисления ориентации окна браузера */
         const [pageWidth, setPageWidth] = useState(document.documentElement.scrollWidth);
-        const [pageHeight, setPageHeight] = useState(document.documentElement.scrollHeight);
+        /* const [pageHeight, setPageHeight] = useState(document.documentElement.scrollHeight); */
   const [isAuthenticated,setIsAuthenticated] = useState(false);
   const [services, setServices] = useState([
     {
@@ -188,7 +188,20 @@ function App() {
       switch:true
     }
   ]);//хук хранит инфу о статьях
-  const [stocks, setStocks] = useState([]);//хук хранит инфу об акциях
+  const [stocks, setStocks] = useState([
+    {
+      id:"1",
+      title:"Первые 3 месяца скидка 30%",
+      text:"Готовы стать нашим клиентом и получить полноценное обслуживание? При заключении договора с нами мы подарим вам скидку 30% от стоимости услуг на первые 3 месяца.",
+      path:'/img/stock-1.png'    
+    },
+    {
+      id:"2",
+      title:"Восстановление учета скидка 50%",
+      text:"Если вы ведете бухгалтерия и у вас появились грубые нарушения, то мы предлагаем вам решить это проблемы и воспользоваться услугой Восстаносление бухгалтерского учета.",
+      path:'/img/stock-2.png' 
+    }
+  ]);//хук хранит инфу об акциях
   const [users, setUsers] = useState([
     {
       id:1,
@@ -217,7 +230,7 @@ function App() {
       phone: 89999998888,
       role: "admin"
     },
-]);//хук хранит инфу о пользователях
+  ]);//хук хранит инфу о пользователях
   const [themeHeader, setThemeHeader] = useState('dark');
   window.onload = function() { 
     setPageWidth(window.innerWidth);
@@ -230,7 +243,7 @@ function App() {
   else{
   return (
     <AppContext.Provider
-      value={{services, packages, contacts,
+      value={{services, setServices, packages, setPackages, contacts, setContacts, stocks, setStocks,
               pageWidth, setPageWidth,
               articles, setArticles,
               isAuthenticated,setIsAuthenticated,

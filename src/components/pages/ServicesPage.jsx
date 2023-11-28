@@ -18,10 +18,10 @@ const ServicesPage = () => {
                       {[...Array(Object.keys(ServicesPageContext.services).length)].map((obj,i)=>{
                         return <div className='align-items-stretch col-xl-4 col-lg-4 col-md-5 col-sm-10 col-10 p-3'>
                                   <CardForServices 
-                                                    id={ServicesPageContext.services[i].id}
-                                                    name={ServicesPageContext.services[i].name}
-                                                    path={ServicesPageContext.services[i].path}
-                                                    description={ServicesPageContext.services[i].description}
+                                                  id={ServicesPageContext.services[i].id_serv}
+                                                  name={ServicesPageContext.services[i].name_serv}
+                                                  path={ServicesPageContext.services[i].path_serv}
+                                                  description={ServicesPageContext.services[i].description_serv}
                                     />
                               </div>
                       })}  

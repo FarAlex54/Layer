@@ -1,8 +1,8 @@
-import React,{useState, useEffect} from 'react'
+import React, { useEffect} from 'react'
 import { gsap } from 'gsap/dist/gsap';
 import { AppContext } from '../App';
 import CardForPackages from './cards/CardForPackages';
-import Button from 'react-bootstrap/esm/Button';
+
 
 const PackagesNewTwo = () => {
     const PackagesContext = React.useContext(AppContext);
@@ -83,12 +83,12 @@ const PackagesNewTwo = () => {
                 {[...Array(Object.keys(PackagesContext.packages).length)].map((obj,i)=>{
                     return  <button className='card_packages' tabIndex="-1">
                                 <CardForPackages
-                                    id={PackagesContext.packages[i].id}
-                                    name={PackagesContext.packages[i].name}
-                                    price={PackagesContext.packages[i].price}
-                                    description={PackagesContext.packages[i].description}
-                                    include={PackagesContext.packages[i].include}
-                                    uninclude={PackagesContext.packages[i].uninclude}
+                                    id_p={PackagesContext.packages[i].id}
+                                    name_p={PackagesContext.packages[i].name}
+                                    price_p={PackagesContext.packages[i].price}
+                                    description_p={PackagesContext.packages[i].description}
+                                    include_p={PackagesContext.packages[i].include}
+                                    uninclude_p={PackagesContext.packages[i].uninclude}
                                 />
                             </button>
                 })}
