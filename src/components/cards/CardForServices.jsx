@@ -1,31 +1,36 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import './../../App.css';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container'
 
 
 const CardForServices = (props) => {
           
   return (
-        <Card className='d-flex bg-secondary' style={{height:'100%'}}>
-            <div className='row m-1'>
-                <div className='col-4 align-self-center'>
-                    <img src={props.path} className='img-fluid' alt="" />
-                </div>
-                <div className='col-8 text-center align-self-center text-light'>
-                        <span className='font_h'>{props.name}</span>
-                </div>
-            </div>
-            <div className='row mx-3'>
-                    <ul className='ul'>
-                        {([...props.description].map((obj,i)=><li><span className='font_p'>{obj}</span></li>))}
-                    </ul>
-            </div>
-            <div className='row align-self-center pb-2' style={{height:'100%'}}> 
-                <Button className='align-self-end'>Заказать</Button>
-            </div>
-        </Card>
-
+        <Card className='bg-secondary' style={{height:'100%'}}>
+            <Container fluid className='' style={{height:'100%'}}>
+                <Row className='align-items-center py-2'>
+                    <Col xxl={3} xl={3} lg={3} md={3} sm={3} xs={4} className=''>
+                        <Image src={props.path} fluid />
+                    </Col>
+                    <Col className='text-light text-center font_h'>{props.name}</Col>
+                </Row>
+                <Row>
+                    <Col className=''>
+                        <ul className='ul font_p'>
+                           {([...props.description].map((obj,i)=><li>{obj}</li>))} 
+                        </ul>
+                    </Col>
+                </Row>
+            </Container>
+            <Col className='text-center pb-3'>
+                <Button className='w-50'>Заказать</Button>
+            </Col>
+         </Card>
   )
 }
 

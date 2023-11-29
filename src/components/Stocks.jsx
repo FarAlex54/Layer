@@ -1,18 +1,31 @@
 import React from 'react'
-import Container from 'react-bootstrap/esm/Container'
+import { AppContext } from '../App';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Image from 'react-bootstrap/Image';
 
 const Stocks = () => {
+  const StocksContext = React.useContext(AppContext);
   return (
-    <Container >
-        <div className='row justify-content-around align-items-center stocks'>
-            <div className='name_block_light pt-4 pb-5'>Акции компании</div>
-            <div className='col-5 col-xl-5 col-lg-5 col-md-5 col-sm-5 '>
-                <img className="img-fluid" src="/img/Stocks-1.png" alt="" />
-            </div>
-            <div className='col-5 col-xl-5 col-lg-5 col-md-5 col-sm-5 '>
-                <img className="img-fluid" src="/img/Stocks-2.png" alt="" />
-            </div>
-        </div>
+    <Container className='pt-5' fluid>
+      <div className='geolocation_map px-5 align-self-start' style={{width:'100%'}}>Пакеты услуг</div>
+      <Row className='justify-content-evenly'>
+        <Col xxl={4} xl={5} lg={5} md={5} sm={5} xs={5} className=''>
+          <Image className='stock_img' src='/img/stock-1.png' fluid/>
+          <div className='stock_card p-2'>
+            <p className='text-light text-center font_h'>{StocksContext.stocks[0].title}</p>
+            <p className='text-light font_p'>{StocksContext.stocks[0].text}</p>
+          </div>
+        </Col>
+        <Col xxl={4} xl={5} lg={5} md={5} sm={5} xs={5} className=''>
+          <Image className='stock_img' src='/img/stock-2.png' fluid/>
+          <div className='stock_card p-2'>
+            <p className='text-light text-center font_h'>{StocksContext.stocks[1].title}</p>
+            <p className='text-light font_p'>{StocksContext.stocks[1].text}</p>
+          </div>
+        </Col>
+      </Row>
     </Container>
   )
 }
