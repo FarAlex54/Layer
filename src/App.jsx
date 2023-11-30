@@ -244,7 +244,7 @@ function App() {
   return (
     <AppContext.Provider
       value={{services, setServices, packages, setPackages, contacts, setContacts, stocks, setStocks,
-              pageWidth, setPageWidth,
+              pageWidth, 
               articles, setArticles,
               isAuthenticated,setIsAuthenticated,
               themeHeader, setThemeHeader}}>

@@ -9,6 +9,10 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function Header() {
   const HeaderContext = React.useContext(AppContext);
@@ -18,35 +22,63 @@ function Header() {
     e.preventDefault();
     setShow(true);
   }
+
+  let container={}
+  let background={}
+  const changeStyles = (container) => {
+    container ={
+    border: '1px',
+    background:'#55A0E2',
+    borderRadius: '10px'           
+    }
+
+  }      
+
   return (
-    <Container fluid className='' style={{opacity:'0.8'}}>
-      <Row className='align-items-center justify-content-between'>
-        <Col xxl={2} xl={2} lg={2} md={2} sm={3} xs={3} className=''>
-          <Navbar className='ps-1 ps-xxl-3 ps-xl-2'>
-            <Navbar.Brand>
-              <Image src='/img/Logowhite.png' fluid/>
-            </Navbar.Brand>
-          </Navbar>
-        </Col>
-        <Col className=''>
-          <Nav className='justify-content-evenly header_h'>
-            <Nav.Link className='header_text text-white' href='/'>Главная</Nav.Link>
-            <Nav.Link className='header_text text-white' href='/services'>Услуги</Nav.Link>
-            <Nav.Link className='header_text text-white' href='/knows'>База знаний</Nav.Link>
-            <Nav.Link className='header_text text-white' href='/about'>О нас</Nav.Link>
-            <Nav.Link className='header_text text-white' href='/contacts'>Контакты</Nav.Link>
-          </Nav>
-        </Col>
-        <Col xxl={2} xl={2} lg={2} md={2} sm={2} xs={2} className='text-end'>
-            <button className='bg-primary text-light header_button' /* style={container()} */ onClick={(e)=>handleClick(e)}>Личный кабинет</button>
-        </Col>
-      </Row>
+    <div>
+    <div className='d-flex align-items-center justify-content-between'>
+      <div className='w-100'>
+        <Container fluid className='' style={{opacity:'0.8'}}>
+          <Navbar className='ps-1 ps-xxl-3 ps-xl-2' expand="md">
+            <Row className='align-items-center w-100'>
+              <Col xxl={2} xl={2} lg={2} md={2} sm={3} xs={3} className=''>
+                <Navbar.Brand><Image src='/img/Logowhite.png' fluid/></Navbar.Brand>
+              </Col>
+              <Col sm={(HeaderContext.pageWidth<=768)? 10:1} className={(HeaderContext.pageWidth<=768)? 'pt-2':''}>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={()=>{changeStyles(container)}} style={(HeaderContext.pageWidth<=768)? {background:'#55A0E2'}:{background:'rgba(0,0,0,0.0)'}}/> 
+              </Col>
+              <Col xxl={9} xl={9} lg={9} md={9} sm={4} xs={5} style={container}> {/* Стиль должен включаться при экране sm или xs*/}
+                  <Navbar.Collapse id="basic-navbar-nav" className=''>               
+                    <Nav className='justify-content-evenly header_h w-100 '>
+                      <Nav.Link className='header_text text-white text-start' href='/'>Главная</Nav.Link>
+                      <Nav.Link className='header_text text-white text-start' href='/services'>Услуги</Nav.Link>
+                      <Nav.Link className='header_text text-white text-start' href='/knows'>База знаний</Nav.Link>
+                      <Nav.Link className='header_text text-white text-start' href='/about'>О нас</Nav.Link>
+                      <Nav.Link className='header_text text-white text-start' href='/contacts'>Контакты</Nav.Link>
+                    </Nav>
+                  </Navbar.Collapse>
+              </Col>
+            </Row>
+{/*             <Row className='bg-warning' >
+              <Col sm='auto' xs='auto' className='bg-warning'>
+                <div className='w-100'>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav"/>  
+                </div>
+              </Col>
+            </Row> */}
       <Modal className='' size="lg" aria-labelledby="contained-modal-title-vcenter" centered show={show} onHide={handleClose}>
           <Modal.Body className=''>
             <SignLogin className=''/>
           </Modal.Body>
       </Modal> 
+      </Navbar>
     </Container>
+      </div>
+      <div className=''>
+        <button className='text-light header_button' style={{whiteSpace: "nowrap",background:'#55A0E2'}} onClick={(e)=>handleClick(e)}>Личный кабинет</button>
+      </div>
+    </div>
+    </div>
   )
 }
 
