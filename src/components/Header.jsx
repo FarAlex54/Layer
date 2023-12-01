@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {Link} from 'react-router-dom';
 import { AppContext } from '../App';
 import Modal from 'react-bootstrap/Modal';
 import SignLogin from './pages/SignLogin';
@@ -9,8 +8,6 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -45,11 +42,11 @@ function Header() {
                 <Navbar.Brand><Image src='/img/Logowhite.png' fluid/></Navbar.Brand>
               </Col>
               <Col sm={(HeaderContext.pageWidth<=768)? 10:1} className={(HeaderContext.pageWidth<=768)? 'pt-2':''}>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={()=>{changeStyles(container)}} style={(HeaderContext.pageWidth<=768)? {background:'#55A0E2'}:{background:'rgba(0,0,0,0.0)'}}/> 
+                <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={()=>{changeStyles(container)}} style={(HeaderContext.pageWidth<=768)? {background:'#55A0E2', padding:'1px'}:{background:'rgba(0,0,0,0.0)'}}/> 
               </Col>
               <Col xxl={9} xl={9} lg={9} md={9} sm={4} xs={5} style={container}> {/* Стиль должен включаться при экране sm или xs*/}
-                  <Navbar.Collapse id="basic-navbar-nav" className=''>               
-                    <Nav className='justify-content-evenly header_h w-100 '>
+                  <Navbar.Collapse id="basic-navbar-nav" className='' >               
+                    <Nav className='justify-content-evenly header_h w-100'>
                       <Nav.Link className='header_text text-white text-start' href='/'>Главная</Nav.Link>
                       <Nav.Link className='header_text text-white text-start' href='/services'>Услуги</Nav.Link>
                       <Nav.Link className='header_text text-white text-start' href='/knows'>База знаний</Nav.Link>
