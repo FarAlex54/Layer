@@ -1,0 +1,88 @@
+docker ps -a //показывает все контейнеры
+docker ps //показывает контейнеры загруженные
+docker image ls //показывает все образы
+docker stop //останавливает контейнер нужно указать ID
+docker rm //удалить контейнер указать ID
+docker rmi //удалить образ(image) указать ID
+				для начала нужно сделать директорию /var/www/html
+docker run -d(в фоновом режиме) --name nginx(имя собранного образа) -p 80:80(проброс портов) -v /var/www/html:/usr/share/nginx/html(папка в Linux:папка в контейнере) nginx(название образа)
+docker exec -ti nginx(наименование контейнера) bash //переход в контейнер с названием nginx
+exit //выход обратно в Linux
+docker search nginx // поиск вэбсервера в репозитории
+docker pull nginx //скачивание вебсервера
+
+собрать образ:
+
+	1. создать папку
+	2. в папке создать файл Dockerfile и положить в него необходимые файлы типо index.html
+ 	3. в Dockerfile указать образы операционок(предварительно скачать из репозитория docker search): FROM ubuntu:22.04 
+	4. в Dockerfile указать какой файл будет скопирован в папку вэбсервера nginx типо COPY index.html /usr/share/nginx/html (сюда копирует файл в образ)
+	5. в Dockerfile указать RUN apt-get update && apt-get upgrade -y && apt-get install -y nginx
+	6. в Dockerfile указать открытие порта EXPOSE 80
+	7. в Dockerfile указать CMD ["nginx", "-g", "daemon off;"]
+	8. в Dockerfile указать docker build -t helloworld ./ (запуск сбора образа)
+ 
+docker run -d --name helloworld -p 80:80 -v /usr/share/nginx/html:/var/www/html(отсюда будет подтягиваться index.html) helloworld
+docker run -d --name alex -p 80:80 -v /usr/share/nginx/html:/var/www/html alex // для примера это запуск нового контейнера из образа
+docker start ***********(имя контейнера или id контейнера) старт уже сформированного контейнера
+docker run --name faralex_db -e POSTGRES_USER:faralex POSTGRES_PASSWORD:fktrctq1 -d postgres
+
+ЧТОБЫ ПЕРЕГРУЗИТЬ СЕРВЕР --- sudo reboot now 
+ЧТОБЫ ВЫКЛЮЧИТЬ СЕРВЕР --- sudo shutdown
+ЗАПУСК ngrok В ФОНОВОМ РЕЖИМЕ ----- nohup ngrok http 80 --log=stdout > ngrok.log &
+					ngrok http 80 --log=stdout > ngrok.log &
+		далее нажать ctrl+a и затем d (перейдет в другой терминал)
+ПРОСМОТРЕТЬ ВСЕ СКРИНЫ --- screen -ls
+ПЕРЕКЛЮЧИТЬСЯ НА НУЖНЫЙ СКРИН --- screen -r <указать номер>
+УДАЛИТЬ ПРОЦЕСС ngrok ---- htop и выбрать процесс
+
+sudo curl -s localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url'
+БАЗАДАННЫХ:     https://050d-85-140-161-20.ngrok-free.app
+		https://5ad4-85-140-161-20.ngrok-free.app 
+
+
+эксперименталый файлик docker-compose.yaml
+
+version: '3.1'
+services:
+  dbase:
+    container_name: layer_db
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=fktrctq1
+      - POSTGRES_USER=faralex
+      - POSTGRES_DB=layer_db
+    volumes:
+      - ./projects/db:/var/lib/postgresql/data
+    ports:
+      - ${POSTGRES_PORT:-5432}:5432
+  web:
+    image: nginx
+    restart: always
+    container_name: client_layer
+    ports:
+      - ${POSTGRES_PORT:-80}:80
+    volumes:
+      - ./projects/layer:/usr/share/nginx/html
+
+
+Порядок деплоя:  https://www.youtube.com/watch?v=8OHe6chCWTE --- видеоинструкция
+1. Контейнеры должны быть настроены
+2. Папка для вэб-сервера nginx должнабыть проброшена
+3. Выгрузить проект на гитхаб
+4. Подключиться к серверу по SSH и обновить пакеты sudo apt update
+5. Git долженбыть установлен sudo apt install git-all
+6. Клонировать репозиторий (git clone *******.git) 
+ 6.1. Перед клнориванием нужно удалить предыдущий клонированный репозиторий командой rm -rf Layer
+7. В папке репозитория установить nvm и добавить переменные окружения - Это только для репы впервые
+8. Установить node через nvm. Команда nvm install 18.16.1 - Это только для репы впервые
+9. Установить пакеты - npm install
+9.1. Изменить права и содержимое папки проекта - sudo chmod 777 -R Layer
+10. Сделать сборку проекта на сервере - npm run build
+11. Скопировать папку в папку из которой nginx берет инфу.
+			копирование файлов: sudo cp -r Layer/build/. projects/layer
+			предварительно желательно удалить папку layer с содержим
+
+
+запуск json-server: json-server -p 3001 -H 192.168.2.200 -w db.json
