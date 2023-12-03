@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Header from './components/Header';
 import SelfFooter from './components/SelfFooter';
 import Footer from './components/Footer';
-import {Route, Routes, BrowserRouter as Router, useLocation} from 'react-router-dom';
+import {Route, Routes, BrowserRouter as Router, useLocation, Link} from 'react-router-dom';
 import Home from './components/Home';
 import ServicesPage from './components/pages/ServicesPage';
 import KnowsPage from './components/pages/KnowsPage';
