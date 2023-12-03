@@ -12,7 +12,7 @@ const Footer = () => {
       <Row>
         <Col xxl={2} xl={2} lg={2} md={2} sm={4} xs={4} className='text-center px-sm-4'>
           <Link to={'/'} onClick={() => window.scrollTo(0, 0)}>
-            <Image className='px-3 px-md-1' src="/img/LogoNew.png" fluid/>
+            <Image className='px-3 px-md-1' src="/img/Logodark.png" fluid/>
           </Link>      
           <p className='font_p pt-2 pt-xxl-4'>надежный опыт с 2004 года для оперативного решения нестандартных и сложных задач</p>     
         </Col>

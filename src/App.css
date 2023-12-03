@@ -12,7 +12,7 @@ body{
 }
 .font_p{
     font-family: Roboto;
-    font-size: calc( (100vw - 480px)/(1280 - 480) * (16 - 8) + 9px);
+    font-size: min(calc( (100vw - 480px)/(1280 - 480) * (16 - 8) + 9px),16px);
 }
 .deviser_info{
     background-color: #535358;;
@@ -55,7 +55,7 @@ body{
 }
 
 /* Стили для хедера НУЖНЫЕ*/
-.header{
+.banner_on{
     position: relative;
     top:0;
     width: 100%;
@@ -307,7 +307,7 @@ packages_name{
 }
 .stock_img{
     box-shadow: 9px 9px 4px 0px rgba(0, 0, 0, 0.50);
-    filter: blur(2px);
+    filter: blur(1px);
     z-index:1;
     position:relative;
 }

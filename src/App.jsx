@@ -1,11 +1,10 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './components/Header';
 import SelfFooter from './components/SelfFooter';
 import Footer from './components/Footer';
-import {Route, Routes, BrowserRouter as Router} from 'react-router-dom';
-import { useState} from 'react';
+import {Route, Routes, BrowserRouter as Router, useLocation} from 'react-router-dom';
 import Home from './components/Home';
 import ServicesPage from './components/pages/ServicesPage';
 import KnowsPage from './components/pages/KnowsPage';
@@ -231,13 +230,14 @@ function App() {
       role: "admin"
     },
   ]);//хук хранит инфу о пользователях
-  const [themeHeader, setThemeHeader] = useState('dark');
+  const [themeHeader, setThemeHeader] = useState('light'); /* цветовая тема для хэдера */
   window.onload = function() { 
     setPageWidth(window.innerWidth);
   }; 
   window.onresize = function() { 
     setPageWidth(window.innerWidth);
   };
+
   if (services.length===0 || packages.length===0 || contacts.length===0) {return <div className="App">Loading...</div>;}
 
   else{
@@ -250,8 +250,8 @@ function App() {
               themeHeader, setThemeHeader}}>
       <div className='user-select-none'>
         <Router>
-            <div className='header'>
-              <Header />
+            <div className=''>
+              <Header/>
             </div>
             <Routes>
               <Route path='/' element={<Home/>}/>

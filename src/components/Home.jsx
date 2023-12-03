@@ -6,10 +6,12 @@ import Stocks from './Stocks';
 import GeoLocation from './GeoLocation';
 import PackagesNewTwo from './PackagesNewTwo';
 import { AppContext } from '../App';
+import { useLocation } from "react-router";
 
 const Home = () => {
   const HomeContext = React.useContext(AppContext);
-  HomeContext.setThemeHeader('dark');
+  const location = useLocation();
+  if(location.pathname==='/'){HomeContext.setThemeHeader('light')}
   return (
     <div>
         <Banner />

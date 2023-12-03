@@ -2,9 +2,12 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import { AppContext } from '../../App';
 import CardForContactsPage from '../cards/CardForContactsPage';
+import { useLocation } from "react-router";
 
 const ContactsPage = () => {
   const ContactsPageContext = React.useContext(AppContext);
+  const location = useLocation();
+  if(location.pathname==='/contacts'){ContactsPageContext.setThemeHeader('dark')}
   return (
     <div className='d-flex flex-column'>
       <div className='' style={{background:'#444856'}}>

@@ -5,10 +5,13 @@ import { AppContext } from '../../App';
 import CardForServices from '../cards/CardForServices';
 import Stocks from '../Stocks';
 import PackagesNewTwo from '../PackagesNewTwo';
+import { useLocation } from "react-router";
 
 
 const ServicesPage = () => {
   const ServicesPageContext = React.useContext(AppContext);
+  const location = useLocation();
+  if(location.pathname==='/services'){ServicesPageContext.setThemeHeader('dark')}
   return (
     <div>
       <div className='bg-secondary'>

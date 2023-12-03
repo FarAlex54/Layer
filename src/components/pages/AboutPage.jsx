@@ -3,8 +3,13 @@ import './../../App.css';
 import Geolocation from '../GeoLocation';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/esm/Button';
+import { AppContext } from '../../App';
+import { useLocation } from "react-router";
 
 const AboutPage = () => {
+  const AboutPageContext = React.useContext(AppContext);
+  const location = useLocation();
+  if(location.pathname==='/about'){AboutPageContext.setThemeHeader('dark')}
   const a =[];
   a[0] = {title:'Специализация компании',text: 'Оказание комплексных юридических, финансовых, бухгалтерских и аудиторских услуг бизнесу.'};
   a[1] = {title:'Компетенции компании',text: 'Cоздание бизнеса Клиента, построение его оптимальной структуры ; аккуратное и легальное сопровождение прекращения бизнеса Клиента или выхода из него.'};

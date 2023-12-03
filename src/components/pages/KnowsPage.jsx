@@ -1,15 +1,18 @@
-import React, { memo } from 'react'
+import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { AppContext } from '../../App';
 import { useState } from 'react';
+import { useLocation } from "react-router";
 
 const KnowsPage = () => {
   const KnowsPageContext = React.useContext(AppContext);
   const [article,setArticle] = useState({});
   const [show,setShow] = useState(false);
   const handleClose = () => setShow(false);
+  const location = useLocation();
+  if(location.pathname==='/knows'){KnowsPageContext.setThemeHeader('dark')}
   function handleClick(obj,e){
     e.preventDefault();
     setShow(true);
