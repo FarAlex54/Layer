@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {Link} from 'react-router-dom';
 import { AppContext } from '../App';
 import Modal from 'react-bootstrap/Modal';
 import SignLogin from './pages/SignLogin';
@@ -12,6 +11,7 @@ import Image from 'react-bootstrap/Image';
 import { useLocation } from "react-router";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import {Link} from 'react-router-dom';
 
 function Header() {
   const HeaderContext = React.useContext(AppContext);
