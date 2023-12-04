@@ -28,7 +28,7 @@ const CardForServices = (props) => {
                 </Row>
             </Container>
             <Col className='text-center pb-3'>
-                <Button className='w-50'><span className='font_h'>Заказать</span></Button>
+                <Button className='w-50' style={{background:'#55A0E2', border:'0px'}}><span className='font_h'>Заказать</span></Button>
             </Col>
          </Card>
   )

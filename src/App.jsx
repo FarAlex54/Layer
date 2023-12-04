@@ -231,6 +231,7 @@ function App() {
     },
   ]);//хук хранит инфу о пользователях
   const [themeHeader, setThemeHeader] = useState('light'); /* цветовая тема для хэдера */
+  const [headerSize, setHeaderSize] = useState(0); /* Размер header */
   window.onload = function() { 
     setPageWidth(window.innerWidth);
   }; 
@@ -247,7 +248,8 @@ function App() {
               pageWidth, 
               articles, setArticles,
               isAuthenticated,setIsAuthenticated,
-              themeHeader, setThemeHeader}}>
+              themeHeader, setThemeHeader,
+              headerSize, setHeaderSize}}>
       <div className='user-select-none'>
         <Router>
             <div className=''>
