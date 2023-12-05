@@ -1,11 +1,6 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card';
+import {Card, Row, Col, Image, Button, Container} from 'react-bootstrap';
 import './../../App.css';
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container'
 
 
 const CardForServices = (props) => {

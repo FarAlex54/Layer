@@ -10,6 +10,7 @@ import ServicesPage from './components/pages/ServicesPage';
 import KnowsPage from './components/pages/KnowsPage';
 import AboutPage from './components/pages/AboutPage';
 import ContactsPage from './components/pages/ContactsPage';
+import HeaderTest from './components/HeaderTest';
 
 
 export const AppContext = React.createContext({});
@@ -239,6 +240,13 @@ function App() {
     setPageWidth(window.innerWidth);
   };
 
+
+  const [scrollPosition, setScrollPosition] = useState(0); /* Значение скрола */
+  useEffect(() =>{
+    window.addEventListener('scroll',()=>{setScrollPosition(window.scrollY)})/* для кроссбраузеров использовать window.pageYOffset */
+  },[])
+
+
   if (services.length===0 || packages.length===0 || contacts.length===0) {return <div className="App">Loading...</div>;}
 
   else{
@@ -250,8 +258,16 @@ function App() {
               isAuthenticated,setIsAuthenticated,
               themeHeader, setThemeHeader,
               headerSize, setHeaderSize}}>
-      <div className='user-select-none'>
-        <Router>
+      <div className='user-select-none'> 
+        <Router>          
+            <div className='navbar_sticky'> {/* Залипательный navbar контента */}
+              <div className='navbar_absolute' style={(scrollPosition>50 & pageWidth>768)? {animation: 'ani_on 0.5s forwards'}:{animation: 'ani_off 0.8s forwards'}}> {/* Поверх всего контента */}
+                <HeaderTest/>
+                <span>Скрол ={scrollPosition}</span><hr/>
+                <span>qwe =</span>
+                {/* <Header/> */}
+              </div>
+            </div>
             <div className=''>
               <Header/>
             </div>

@@ -21,13 +21,32 @@ body{
     overflow: auto;
     opacity: 0.42;
   }
+/* Выпадающий navbar */
+.navbar_sticky{
+    position: sticky;
+    top: 0;
+    z-index:100;
+}
+.navbar_absolute{
+    position: absolute;
+    background:white;
+    width: 100%;
+}
+@keyframes ani_on {
+    0% {opacity: 0; top:-150px;}
+    100% {opacity: 1; top:0px;}
+  }
+@keyframes ani_off {
+    0% {opacity: 1;}
+    100% {opacity: 0; top:-150px;}
+
+  }
 /* Стили для банера */
 .banner{
     position: absolute;
     top:0;
     z-index:0;
     width: 100%;
-    
 }
 .carusel_caption{
     top:35%;
