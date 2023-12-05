@@ -262,10 +262,10 @@ function App() {
         <Router>          
             <div className='navbar_sticky'> {/* Залипательный navbar контента */}
               <div className='navbar_absolute' style={(scrollPosition>50 & pageWidth>768)? {animation: 'ani_on 0.5s forwards'}:{animation: 'ani_off 0.8s forwards'}}> {/* Поверх всего контента */}
-                <HeaderTest/>
+{/*                 <HeaderTest/>
                 <span>Скрол ={scrollPosition}</span><hr/>
-                <span>qwe =</span>
-                {/* <Header/> */}
+                <span>qwe =</span> */}
+                <Header/>
               </div>
             </div>
             <div className=''>

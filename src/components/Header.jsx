@@ -10,7 +10,8 @@ import Form from 'react-bootstrap/Form';
 function Header() {
   const HeaderContext = React.useContext(AppContext);
   const location = useLocation();
-  const banner_on = (location.pathname==='/')? 'banner_on':'';
+  /* const banner_on = (location.pathname==='/')? 'banner_on':''; */
+  const banner_on = (location.pathname==='/')? {position:'absolute', zIndex:'2',width: '100%'}:{position:'relative'}
   const [show,setShow] = useState(false); //для модалки, конкретнее для формы Sign/Login
   const handleClose = () => setShow(false);
   function handleClick(e){
@@ -21,10 +22,9 @@ function Header() {
   const style_navLink = (HeaderContext.themeHeader==='light')? 'text-white text-decoration-none':'text-dark text-decoration-none';
   const [expanded, setExpanded] = useState(false);
 
- /*  HeaderContext.setHeaderSize(getComputedStyle(navbarHeader).height); */
 
   return (
-    <div className={banner_on}>
+    <div className='' style={banner_on}/* className={banner_on} */>
     <div className='d-flex align-items-center justify-content-between'>
       <div className='w-100'>
         <Container fluid style={{opacity:'0.8'}}>
