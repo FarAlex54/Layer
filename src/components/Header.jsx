@@ -7,11 +7,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
-function Header() {
+function Header(props) {
   const HeaderContext = React.useContext(AppContext);
   const location = useLocation();
-  /* const banner_on = (location.pathname==='/')? 'banner_on':''; */
-  const banner_on = (location.pathname==='/')? {position:'absolute', zIndex:'2',width: '100%'}:{position:'relative'}
   const [show,setShow] = useState(false); //для модалки, конкретнее для формы Sign/Login
   const handleClose = () => setShow(false);
   function handleClick(e){
@@ -19,19 +17,18 @@ function Header() {
     setShow(true);
   }
       
-  const style_navLink = (HeaderContext.themeHeader==='light')? 'text-white text-decoration-none':'text-dark text-decoration-none';
+  const style_navLink = (HeaderContext.themeHeader==='light')? ((props.theme==='dark')? 'text-dark text-decoration-none':'text-white text-decoration-none'):'text-dark text-decoration-none';
   const [expanded, setExpanded] = useState(false);
 
-
   return (
-    <div className='' style={banner_on}/* className={banner_on} */>
+    <div className={(location.pathname==='/')? 'header_absolute':'header_relative'} style={(props.theme==='dark')? {background:'#FFF'}: null}>
     <div className='d-flex align-items-center justify-content-between'>
       <div className='w-100'>
         <Container fluid style={{opacity:'0.8'}}>
-          <Navbar id='navbarHeader' className='ps-1 ps-xxl-3 ps-xl-2' expand="md" expanded={expanded}>
+          <Navbar className='ps-1 ps-xxl-3 ps-xl-2' expand="md" expanded={expanded}>
             <Row className='align-items-center w-100'>
               <Col xxl={2} xl={2} lg={2} md={2} sm={3} xs={3}>
-                <Navbar.Brand><Image src={(HeaderContext.themeHeader==='light')? '/img/Logowhite.png':'/img/Logodark.png'} fluid/></Navbar.Brand>
+                <Navbar.Brand><Image src={(HeaderContext.themeHeader==='light')? ((props.theme==='dark')?'/img/Logodark.png':'/img/Logowhite.png'):'/img/Logodark.png'} fluid/></Navbar.Brand>
               </Col>
               <Col sm={(HeaderContext.pageWidth<768)? 10:1} xs={(HeaderContext.pageWidth<768)? 10:1} className={(HeaderContext.pageWidth<768)? 'pt-2':''}>
                 <Navbar.Toggle onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" style={(HeaderContext.pageWidth<=768)? {background:'#55A0E2'}:{background:'rgba(0,0,0,0.0)'}}/> 

@@ -14,40 +14,14 @@ body{
     font-family: Roboto;
     font-size: min(calc( (100vw - 480px)/(1280 - 480) * (16 - 8) + 9px),16px);
 }
-.deviser_info{
+.deviser_info{ /* разделитель вертикальный*/
     background-color: #535358;;
     width: 2px;
     height: 100%;
     overflow: auto;
     opacity: 0.42;
   }
-/* Выпадающий navbar */
-.navbar_sticky{
-    position: sticky;
-    top: 0;
-    z-index:100;
-}
-.navbar_absolute{
-    position: absolute;
-    background:white;
-    width: 100%;
-}
-@keyframes ani_on {
-    0% {opacity: 0; top:-150px;}
-    100% {opacity: 1; top:0px;}
-  }
-@keyframes ani_off {
-    0% {opacity: 1;}
-    100% {opacity: 0; top:-150px;}
-
-  }
 /* Стили для банера */
-.banner{
-    position: absolute;
-    top:0;
-    z-index:0;
-    width: 100%;
-}
 .carusel_caption{
     top:35%;
 }
@@ -73,13 +47,33 @@ body{
     letter-spacing: 1px;
 }
 
-/* Стили для хедера НУЖНЫЕ*/
-.banner_on{
+/* Стили для Хедера*/
+.navbar_sticky{
+    position: sticky;
+    top: 0;
+    z-index:100;
+}
+.navbar_absolute{
+    position: absolute;
+    background:white;
+    width: 100%;
+}
+.banner_relative{
     position: relative;
     top:0;
     width: 100%;
     height: 49vw;
     z-index:1;
+}
+.header_absolute{
+    position: absolute;
+    top:0;
+    z-index:2;
+    width: 100%;
+}
+.header_relative{
+    position: relative;
+    background: #FFF;
 }
 .header_h{
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -96,6 +90,17 @@ body{
     left: 10px;
     top: 100px;
 }
+@keyframes ani_on { /*анимация выпадающего хедера*/
+    0% {opacity: 0; top:-150px;}
+    100% {opacity: 1; top:0px;}
+  }
+@keyframes ani_off { /*анимация исчезающего хедера*/
+    0% {opacity: 1;}
+    100% {opacity: 0; top:-150px;}
+
+  }
+
+  
 /* Стили для формы входа/регистрации */
 
 .modal-content {

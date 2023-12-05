@@ -14,7 +14,7 @@ const Home = () => {
   if(location.pathname==='/'){HomeContext.setThemeHeader('light')}
   return (
     <div>
-      <div className='banner_on'>
+      <div className='banner_relative'>
         <Banner />
       </div>
         <Services/>

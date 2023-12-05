@@ -260,17 +260,12 @@ function App() {
               headerSize, setHeaderSize}}>
       <div className='user-select-none'> 
         <Router>          
-            <div className='navbar_sticky'> {/* Залипательный navbar контента */}
+            <div className='navbar_sticky '> {/* Залипательный navbar контента */}
               <div className='navbar_absolute' style={(scrollPosition>50 & pageWidth>768)? {animation: 'ani_on 0.5s forwards'}:{animation: 'ani_off 0.8s forwards'}}> {/* Поверх всего контента */}
-{/*                 <HeaderTest/>
-                <span>Скрол ={scrollPosition}</span><hr/>
-                <span>qwe =</span> */}
-                <Header/>
+                <Header theme='dark'/>
               </div>
             </div>
-            <div className=''>
-              <Header/>
-            </div>
+            <Header/>
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/services' element={<ServicesPage/>}/>

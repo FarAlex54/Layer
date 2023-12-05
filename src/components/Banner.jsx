@@ -9,7 +9,7 @@ const Banner = () => {
 
 
   return (
-    <div className='banner'>
+    <div className=''>
     <Carousel
       slide={false}
       controls={false}
