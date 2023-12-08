@@ -11,19 +11,24 @@ import { useState, useEffect, useRef } from "react";
 const AboutPage = () => {
   const AboutPageContext = React.useContext(AppContext);
   const [widthBox, setWidthBox] = useState();
+  const [widthCard, setWidthCard] = useState();
   const location = useLocation();
   const boxRef = useRef();
+  const cardRef = useRef();
   if(location.pathname==='/about'){AboutPageContext.setThemeHeader('dark')}
-  const getBoxSize = () => {
-    const newWidth = boxRef.current.clientWidth;
-    setWidthBox(newWidth);
+  const getSize = () => {
+    const newWidthBox = boxRef.current.clientWidth;
+    const newWidthCard = cardRef.current.clientWidth;
+    setWidthBox(newWidthBox);
+    setWidthCard(newWidthCard);
   };
   useEffect(() => {
-    window.addEventListener("load", getBoxSize());
+    window.addEventListener("load", getSize());
   }, []);
 
   return (
     <div>
+        {/* Серый блок с квадратиками */}
           <Container className='py-5' fluid style={{background:'#444856',color:'#FFF'}}>
             <Container>
               <h1 className=''>Формула успешного бизнеса</h1>
@@ -48,16 +53,17 @@ const AboutPage = () => {
               <div className='hr_line'></div>
             </Container>
           </Container>
+        {/* Блок с карточками и брэндом */}  
           <Container className='pt-4'>
             <Row xxl={3} className=''>
              {AboutPageContext.about.map((obj)=>{
               return (
-                <Col xxl={4} xl={4} lg={4} md={4} sm={6} xs={12} className='pb-2' style={{height:'25vh'}}>
+                <Col ref={cardRef} xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:widthCard*(3/4)}}>
                   <CardForAbout id={obj.id} title={obj.title} pathIcon={obj.pathIcon} description={obj.description}/>
                 </Col>
                 )
              })}
-             <Col xxl={4} xl={4} lg={4} md={4} sm={6} xs={12} className='pb-2' style={{height:'25vh'}}>
+             <Col xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:widthCard*(3/4)}}>
                 <Container className='card_about_next h-100' fluid>
                   <Row className='h-100'>
                     <Col className='text-center'>
@@ -68,22 +74,6 @@ const AboutPage = () => {
              </Col>
             </Row> 
           </Container>
-
-
-
-{/*       <div className='d-flex flex-column' style={{background:'#444856'}}>
-          <Container className='py-5'>
-            <div className='row justify-content-between'>
-              <div className='col-7'>
-                  <h1 className='h1pages pPages' style={{color:'white'}}>Воспользуйтесь нашими услугами прямо сейчас</h1>
-              </div>
-              <div className='col-auto align-self-center'><p className='p_test'>Наши специалисты свяжутся с Вами в ближайшее время.</p></div>
-            </div>
-            <div className='row justify-content-end'>
-              <Button className='col-2'>Перезвонить</Button>
-            </div>
-          </Container>
-      </div> */}
       <Geolocation/>
     </div>
   )
