@@ -100,7 +100,7 @@ body{
 
   }
 
-  
+
 /* Стили для формы входа/регистрации */
 
 .modal-content {
@@ -275,7 +275,7 @@ body{
     line-height: normal;
     letter-spacing: 2.05px;
 }
-packages_name{
+.packages_name{
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Roboto;
     font-size: 36px;
@@ -401,9 +401,9 @@ packages_name{
 }
 .h1_about{
     color: #FFF;
-    text-align: center;
     font-family: Roboto;
-    font-size: 54px;
+    font-size: calc((100vw - 480px)/(1280 - 480) * (16 - 8) + 30px);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -411,7 +411,8 @@ packages_name{
 .p_about{
     color: #FFF;
     font-family: Roboto;
-    font-size: 29px;
+    font-size: calc((100vw - 480px)/(1280 - 480) * (16 - 8) + 18px);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-style: normal;
     font-weight: 400;
     line-height: normal;

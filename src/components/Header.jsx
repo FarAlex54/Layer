@@ -21,7 +21,7 @@ function Header(props) {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className={(location.pathname==='/')? 'header_absolute':'header_relative'} style={(props.theme==='dark')? {background:'#FFF'}: null}>
+    <div className={(location.pathname==='/')? 'header_absolute':'header_relative'} style={(props.theme==='dark')? {background:'#FFF', boxShadow: '0px 20px 20px 0px rgba(0, 0, 0, 0.50)'}: null}>
     <div className='d-flex align-items-center justify-content-between'>
       <div className='w-100'>
         <Container fluid style={{opacity:'0.8'}}>

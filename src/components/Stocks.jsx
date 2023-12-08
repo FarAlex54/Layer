@@ -9,7 +9,7 @@ const Stocks = () => {
   const StocksContext = React.useContext(AppContext);
   return (
     <Container className='pt-5' fluid>
-      <div className='geolocation_map px-5 align-self-start' style={{width:'100%'}}>Пакеты услуг</div>
+      <div className='geolocation_map px-5 align-self-start' style={{width:'100%'}}>Акции компании</div>
       <Row className='justify-content-evenly'>
         <Col xxl={4} xl={5} lg={5} md={5} sm={5} xs={5} className=''>
           <Image className='stock_img' src='/img/stock-1.png' fluid/>

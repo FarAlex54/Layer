@@ -231,6 +231,33 @@ function App() {
       role: "admin"
     },
   ]);//хук хранит инфу о пользователях
+  const [about,setAbout] = useState([
+    {id:1,
+     title:'Специализация компании',
+     description:'Оказание комплексных юридических, финансовых, бухгалтерских и аудиторских услуг бизнесу.',
+     pathIcon:'/img/GroupPhones.png'
+    },
+    {id:2,
+     title:'Компетенции компании',
+     description:'Cоздание бизнеса Клиента, построение его оптимальной структуры ; аккуратное и легальное сопровождение прекращения бизнеса Клиента или выхода из него.',
+     pathIcon:'/img/GroupPhones.png'
+    },
+    {id:3,
+      title:'Цели компании',
+      description:'Комплексное и эффективное правовое, бухгалтерское и налоговое сопровождение бизнеса клиентов в целях его развития.',
+      pathIcon:'/img/GroupPhones.png'
+    },
+    {id:4,
+      title:'Клиенты',
+      description:'Управляющими партнерами выстроены долгосрочные отношения с клиентами. Нас рекомендуют, мы не проводим активных рекламных кампаний и рассылок и чаще всего работаем по рекомендации.',
+      pathIcon:'/img/GroupPhones.png'
+    },
+    {id:5,
+      title:'Конфиденциальность',
+      description:'Неразглашение данных о клиенте — четкое правило нашей работы, так как нам доверяют информацию.',
+      pathIcon:'/img/GroupPhones.png'
+    }
+  ]);//хук хранит инфу о кампании
   const [themeHeader, setThemeHeader] = useState('light'); /* цветовая тема для хэдера */
   const [headerSize, setHeaderSize] = useState(0); /* Размер header */
   window.onload = function() { 
@@ -252,7 +279,7 @@ function App() {
   else{
   return (
     <AppContext.Provider
-      value={{services, setServices, packages, setPackages, contacts, setContacts, stocks, setStocks,
+      value={{services, setServices, packages, setPackages, contacts, setContacts, stocks, setStocks,about,setAbout,
               pageWidth, 
               articles, setArticles,
               isAuthenticated,setIsAuthenticated,
@@ -260,7 +287,7 @@ function App() {
               headerSize, setHeaderSize}}>
       <div className='user-select-none'> 
         <Router>          
-            <div className='navbar_sticky '> {/* Залипательный navbar контента */}
+            <div className='navbar_sticky'> {/* Залипательный navbar контента */}
               <div className='navbar_absolute' style={(scrollPosition>50 & pageWidth>768)? {animation: 'ani_on 0.5s forwards'}:{animation: 'ani_off 0.8s forwards'}}> {/* Поверх всего контента */}
                 <Header theme='dark'/>
               </div>
