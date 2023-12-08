@@ -58,12 +58,12 @@ const AboutPage = () => {
             <Row xxl={3} className=''>
              {AboutPageContext.about.map((obj)=>{
               return (
-                <Col ref={cardRef} xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:widthCard*(3/4)}}>
+                <Col ref={cardRef} xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:widthCard*(2/3)}}>
                   <CardForAbout id={obj.id} title={obj.title} pathIcon={obj.pathIcon} description={obj.description}/>
                 </Col>
                 )
              })}
-             <Col xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:widthCard*(3/4)}}>
+             <Col xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:widthCard*(2/3)}}>
                 <Container className='card_about_next h-100' fluid>
                   <Row className='h-100'>
                     <Col className='text-center'>

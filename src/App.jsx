@@ -117,9 +117,13 @@ function App() {
   ]);//хук хранит инфу об Пакетах
   const [contacts, setContacts] = useState([
     {
-      "telephone": "+79833113111",
-      "email": "sibacadem@mail.ru",
-      "addr": "Новосибирск, ул. Ленина д.11"
+      "telephone": "+8800000000"
+    },
+    {
+      "email": "buisnes@mail.ru"
+    },
+    {
+      "addr": "Екатеринбург, ул. Ленина д.11"
     }
   ]);//хук хранит инфу об контактах
   const [articles, setArticles] = useState([

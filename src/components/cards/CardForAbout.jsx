@@ -5,11 +5,11 @@ const CardForAbout = (props) => {
   return (
 
         <Container className='card_about_next h-100' fluid>
-            <Row className='align-items-center py-3'>
-                <Col xxl={3} xl={3} lg={3} md={3} sm={3} xs={3} className='ps-3 pe-3'>
+            <Row className='align-items-center pt-1'>
+                <Col xxl={3} xl={3} lg={3} md={3} sm={3} xs={3} className='ps-2'>
                     <Image src={props.pathIcon} fluid/>   
                 </Col>
-                <Col xxl={9} xl={8} lg={8} md={8} sm={8} xs={8} className='text-center'>
+                <Col xxl={9} xl={9} lg={9} md={9} sm={9} xs={9} className='text-center'>
                     <span className='font_h'>{props.title}</span>
                 </Col>
             </Row>
