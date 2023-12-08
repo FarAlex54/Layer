@@ -117,13 +117,19 @@ function App() {
   ]);//хук хранит инфу об Пакетах
   const [contacts, setContacts] = useState([
     {
-      "telephone": "+8800000000"
+      name:'Телефон',
+      path:'/img/phoneIcon.png',
+      value:'+8800000000'
     },
     {
-      "email": "buisnes@mail.ru"
+      name:'Почта',
+      path:'/img/phoneIcon.png',
+      value:'buisnes@mail.ru'
     },
     {
-      "addr": "Екатеринбург, ул. Ленина д.11"
+      name:'Адрес',
+      path:'/img/phoneIcon.png',
+      value:'Екатеринбург, ул.Ленина д.11'
     }
   ]);//хук хранит инфу об контактах
   const [articles, setArticles] = useState([

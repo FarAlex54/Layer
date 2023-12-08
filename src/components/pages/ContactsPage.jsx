@@ -9,41 +9,22 @@ const ContactsPage = () => {
   const location = useLocation();
   if(location.pathname==='/contacts'){ContactsPageContext.setThemeHeader('dark')}
   return (
-/*     <div className='d-flex flex-column'>
-      <div className='' style={{background:'#444856'}}>
-        <Container className='py-5'>
-          <div className='col-7'>
-              <h1 className='h1pages pPages' style={{color:'white'}}>Свяжитесь с нами любым удобным способом</h1>
-          </div>
-          <div className='row justify-content-between'>
-            <CardForContactsPage name='Телефон' value={ContactsPageContext.contacts.telephone}/>
-            <CardForContactsPage name='Почта' value={ContactsPageContext.contacts.email}/>
-            <CardForContactsPage name='Адрес' value={ContactsPageContext.contacts.addr}/>
-          </div>
-        </Container>
-      </div>
-      <div className=''>
-        <Container>
-          <div className='name_block_light'>Мы работаем по всей России</div>
-          <img className='img-fluid' src="/img/map_contacts.png" alt="" />
-        </Container>
-      </div>
-    </div> */
     <div>
       <Container className='' style={{background:'#444856'}}fluid>
-        <Container>
-          <Row>
+        <Container className='pb-3'>
+          <Row className=''>
             <Col xxl={6} xl={6} className=''>
-              <h1 style={{color: '#FFF',textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',fontFamily: 'Roboto'}}>Свяжитес с нами любым удобным способом</h1>
+              <h1 style={{color: '#FFF',textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',fontFamily: 'Roboto'}}>Свяжитесь с нами любым удобным способом</h1>
             </Col>
           </Row>
-          <Row className='pt-3 text-center'>
-            <Col xxl={4} xl={4} className='bg-info'>1
-            </Col>
-            <Col xxl={4} xl={4} className='bg-danger'>2
-            </Col>
-            <Col xxl={4} xl={4} className='bg-info'>3
-            </Col>
+          <Row className='py-3 text-center'>
+            {ContactsPageContext.contacts.map((obj)=>{
+              return (
+                <Col>
+                  <CardForContactsPage name={obj.name} path={obj.path} value={obj.value}/>
+                </Col>
+                )
+             })}
           </Row>
         </Container>
       </Container>
