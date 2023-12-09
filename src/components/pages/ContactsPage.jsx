@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Container, Row, Col, Image} from 'react-bootstrap';
 import { AppContext } from '../../App';
 import CardForContactsPage from '../cards/CardForContactsPage';
@@ -7,7 +7,10 @@ import { useLocation } from "react-router";
 const ContactsPage = () => {
   const ContactsPageContext = React.useContext(AppContext);
   const location = useLocation();
-  if(location.pathname==='/contacts'){ContactsPageContext.setThemeHeader('dark')}
+  useEffect(() => {
+    if(location.pathname==='/contacts'){ContactsPageContext.setThemeHeader('dark')}
+  }, []);
+
   return (
     <div>
       <Container className='' style={{background:'#444856'}}fluid>
@@ -20,10 +23,10 @@ const ContactsPage = () => {
           <Row className='py-3 text-center'>
             {ContactsPageContext.contacts.map((obj)=>{
               return (
-                <Col>
+                <Col key={obj.id}>
                   <CardForContactsPage name={obj.name} path={obj.path} value={obj.value}/>
-                </Col>
-                )
+                </Col>)
+
              })}
           </Row>
         </Container>

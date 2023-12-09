@@ -12,16 +12,16 @@ const Services = () => {
     <div className='py-3' style={{background:'#444856'}}>
       <Container className=''>
         <Row className="">
-            {[...Array(Object.keys(ServicesContext.services).length)].map((obj,i)=>{
-                      return  <Col xs={6} sm={6} md={6} lg={4} xl={4} xxl={4} className='py-2'>
-                                  <CardForServices
-                                                  id={ServicesContext.services[i].id_serv}
-                                                  name={ServicesContext.services[i].name_serv}
-                                                  path={ServicesContext.services[i].path_serv}
-                                                  description={ServicesContext.services[i].description_serv}
+            {ServicesContext.services.map((obj)=>
+                        <Col key={obj.id} xs={6} sm={6} md={6} lg={4} xl={4} xxl={4} className='py-2'>
+                                  <CardForServices uniqKey={obj.id}
+                                                  id={obj.id}
+                                                  name={obj.name}
+                                                  path={obj.path}
+                                                  description={obj.description}
                                   />
                               </Col>
-            })}
+            )}
         </Row>
       </Container>
     </div>

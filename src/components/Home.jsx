@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Banner from './Banner';
 import Services from './Services';
 import InfoCommand from './InfoCommand';
@@ -11,7 +11,12 @@ import { useLocation } from "react-router";
 const Home = () => {
   const HomeContext = React.useContext(AppContext);
   const location = useLocation();
-  if(location.pathname==='/'){HomeContext.setThemeHeader('light')}
+
+  useEffect(() => {
+    if(location.pathname==='/'){HomeContext.setThemeHeader('light')}
+  }, []);
+
+
   return (
     <div>
       <div className='banner_relative'>
@@ -19,7 +24,7 @@ const Home = () => {
       </div>
         <Services/>
         <InfoCommand/>
-        <PackagesNewTwo/>
+        <PackagesNewTwo keys={'home'}/>
         <Stocks/>
         <GeoLocation />
     </div>

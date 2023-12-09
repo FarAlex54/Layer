@@ -16,8 +16,8 @@ const CardForServices = (props) => {
                 </Row>
                 <Row>
                     <Col className=''>
-                        <ul className='ul font_p'>
-                           {([...props.description].map((obj,i)=><li>{obj}</li>))} 
+                        <ul  className='ul font_p'>
+                           {(props.description.map((obj)=><li key={props.uniqKey+obj.id}>{obj.value}</li>))} 
                         </ul>
                     </Col>
                 </Row>

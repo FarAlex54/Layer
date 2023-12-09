@@ -10,12 +10,11 @@ import { useState, useEffect, useRef } from "react";
 
 const AboutPage = () => {
   const AboutPageContext = React.useContext(AppContext);
-  const [widthBox, setWidthBox] = useState();
-  const [widthCard, setWidthCard] = useState();
-  const location = useLocation();
+  const [widthBox, setWidthBox] = useState(0);
+  const [widthCard, setWidthCard] = useState(0);
   const boxRef = useRef();
   const cardRef = useRef();
-  if(location.pathname==='/about'){AboutPageContext.setThemeHeader('dark')}
+  const location = useLocation();
   const getSize = () => {
     const newWidthBox = boxRef.current.clientWidth;
     const newWidthCard = cardRef.current.clientWidth;
@@ -24,6 +23,7 @@ const AboutPage = () => {
   };
   useEffect(() => {
     window.addEventListener("load", getSize());
+    if(location.pathname==='/about'){AboutPageContext.setThemeHeader('dark')}
   }, []);
 
   return (
@@ -56,13 +56,11 @@ const AboutPage = () => {
         {/* Блок с карточками и брэндом */}  
           <Container className='pt-4'>
             <Row xxl={3} className=''>
-             {AboutPageContext.about.map((obj)=>{
-              return (
-                <Col ref={cardRef} xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:widthCard*(2/3)}}>
-                  <CardForAbout id={obj.id} title={obj.title} pathIcon={obj.pathIcon} description={obj.description}/>
+             {AboutPageContext.about.map((obj)=>
+                <Col key={obj.id} ref={cardRef} xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:widthCard*(2/3)}}>
+                  <CardForAbout title={obj.title} pathIcon={obj.pathIcon} description={obj.description}/>
                 </Col>
-                )
-             })}
+             )}
              <Col xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:widthCard*(2/3)}}>
                 <Container className='card_about_next h-100' fluid>
                   <Row className='h-100'>

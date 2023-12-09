@@ -36,11 +36,11 @@ function Header(props) {
               <Col xxl={9} xl={9} lg={9} md={9} sm={5} xs={6}>
                   <Navbar.Collapse id="basic-navbar-nav" style={(HeaderContext.pageWidth<=768)? {background:'#55A0E2', border: '2px solid cyan', borderRadius: '5px', marginTop: '1vh', padding:'1vh'}:{background:'rgba(0,0,0,0.0)'}}>               
                     <Nav className='justify-content-evenly header_h w-100'>
-                      <Nav.Link className='header_text'><Link className={style_navLink} to={'/'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Главная</Link></Nav.Link>
-                      <Nav.Link className='header_text'><Link className={style_navLink} to={'/services'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Услуги</Link></Nav.Link>
-                      <Nav.Link className='header_text'><Link className={style_navLink} to={'/knows'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>База знаний</Link></Nav.Link>
-                      <Nav.Link className='header_text'><Link className={style_navLink} to={'/about'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>О нас</Link></Nav.Link>
-                      <Nav.Link className='header_text'><Link className={style_navLink} to={'/contacts'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Контакты</Link></Nav.Link>
+                      <Link className={style_navLink} to={'/'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Главная</Link>
+                      <Link className={style_navLink} to={'/services'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Услуги</Link>
+                      <Link className={style_navLink} to={'/knows'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>База знаний</Link>
+                      <Link className={style_navLink} to={'/about'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>О нас</Link>
+                      <Link className={style_navLink} to={'/contacts'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Контакты</Link>
                     </Nav>
                   </Navbar.Collapse>
               </Col>

@@ -4,7 +4,7 @@ import { AppContext } from '../App';
 import CardForPackages from './cards/CardForPackages';
 
 
-const PackagesNewTwo = () => {
+const PackagesNewTwo = (props) => {
     const PackagesContext = React.useContext(AppContext);
     const widthCards ={width:(PackagesContext.packages.length*260)+'px'}
     useEffect(()=>{
@@ -80,18 +80,19 @@ const PackagesNewTwo = () => {
         <div className='name_block_dark px-5 align-self-start flex-fill' style={{width:'100%'}}>Пакеты услуг</div>
         <div className='cards-wrapper'>
             <div className='cards' style={widthCards}>
-                {[...Array(Object.keys(PackagesContext.packages).length)].map((obj,i)=>{
-                    return  <button className='card_packages' tabIndex="-1">
+                {PackagesContext.packages.map((obj,i)=>
+                        <div key={obj.id} className='card_packages' tabIndex="-1">
                                 <CardForPackages
-                                    id_p={PackagesContext.packages[i].id}
-                                    name_p={PackagesContext.packages[i].name}
-                                    price_p={PackagesContext.packages[i].price}
-                                    description_p={PackagesContext.packages[i].description}
-                                    include_p={PackagesContext.packages[i].include}
-                                    uninclude_p={PackagesContext.packages[i].uninclude}
+                                    keys={obj.id+props.keys}
+                                    id={obj.id}
+                                    name={obj.name}
+                                    price={obj.price}
+                                    description={obj.description}
+                                    include={obj.include}
+                                    uninclude={obj.uninclude}
                                 />
-                            </button>
-                })}
+                        </div>
+                )}
             </div>
             <button className="arrow-btn arrow-btn-prev" tabIndex="0">
             </button>
