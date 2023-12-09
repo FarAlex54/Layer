@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import {motion} from 'framer-motion';
@@ -7,7 +7,10 @@ import { AppContext } from '../App';
 const Banner = () => {
   const [changeSlide,setChangeSlide] = useState(1);
   const BannerContext = React.useContext(AppContext);
-
+  const [isLoaded, setIsLoaded] = useState(false);
+  useEffect(() =>{
+    isLoaded? console.log('загружено'):console.log('не загружено')
+  },[isLoaded])
 
   return (
     <div className=''>
@@ -19,7 +22,9 @@ const Banner = () => {
       onSlid={()=>(changeSlide===1)? setChangeSlide(2):setChangeSlide(1)}    
       >
       <Carousel.Item>
-        <Image src='/img/banner1.jpg' style={{width:'100%', height:'49vw'}}/>
+        <Image src='/img/banner1.jpg' style={{width:'100%', height:'49vw'}}
+          onLoad={()=> setIsLoaded(true)}
+        />
 {/*         <motion.img
           key={changeSlide}
           src="/img/banner1.jpg"
