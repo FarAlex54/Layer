@@ -16,7 +16,7 @@ export const AppContext = React.createContext({});
 function App() {
     /* Определение размеров экрана для вычисления ориентации окна браузера */
         const [pageWidth, setPageWidth] = useState(document.documentElement.scrollWidth);
-
+  const [showPic,setShowPic] = useState(false); /* Хук отображения картинок банера*/
   const [isAuthenticated,setIsAuthenticated] = useState(false);
   const services = ([
     {
@@ -344,7 +344,8 @@ function App() {
               pageWidth, 
               articles,
               isAuthenticated,setIsAuthenticated,
-              themeHeader, setThemeHeader
+              themeHeader, setThemeHeader,
+              showPic,setShowPic
               }}>
       <div className='user-select-none'> 
         <Router>          
