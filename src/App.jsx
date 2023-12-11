@@ -268,7 +268,7 @@ function App() {
     {
       id:1,
       name: "Виталий",
-      login: "Vital",
+      login: "vit",
       password: "qwe",
       email: "vital@mail.ru",
       phone: 89999999999,
@@ -345,7 +345,8 @@ function App() {
               articles,
               isAuthenticated,setIsAuthenticated,
               themeHeader, setThemeHeader,
-              showPic,setShowPic
+              showPic,setShowPic,
+              users, setUsers
               }}>
       <div className='user-select-none'> 
         <Router>          

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import Banner from './Banner';
 import Services from './Services';
 import InfoCommand from './InfoCommand';
@@ -12,7 +12,7 @@ const Home = () => {
   const HomeContext = React.useContext(AppContext);
   const location = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if(location.pathname==='/'){HomeContext.setThemeHeader('light')}
   }, []);
 

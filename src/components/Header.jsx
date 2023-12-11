@@ -45,14 +45,14 @@ function Header(props) {
                   </Navbar.Collapse>
               </Col>
             </Row>
-{/*             <Row className='bg-warning' >
-              <Col sm='auto' xs='auto' className='bg-warning'>
-                <div className='w-100'>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav"/>  
-                </div>
-              </Col>
-            </Row> */}
-      <Modal className='' size="lg" aria-labelledby="contained-modal-title-vcenter" centered show={show} onHide={handleClose}>
+          {/*             <Row className='bg-warning' >
+                        <Col sm='auto' xs='auto' className='bg-warning'>
+                          <div className='w-100'>
+                            <Navbar.Toggle aria-controls="basic-navbar-nav"/>  
+                          </div>
+                        </Col>
+                      </Row> */}
+      <Modal className='' size="lg" aria-labelledby="contained-modal-title-vcenter" show={show} onHide={handleClose}>
           <Modal.Body className=''>
             <SignLogin className=''/>
           </Modal.Body>

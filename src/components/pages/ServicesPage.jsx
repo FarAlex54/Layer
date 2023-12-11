@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import './../../App.css';
 import Container from 'react-bootstrap/Container';
 import { AppContext } from '../../App';
@@ -11,7 +11,7 @@ import { useLocation } from "react-router";
 const ServicesPage = () => {
   const ServicesPageContext = React.useContext(AppContext);
   const location = useLocation();
-  useEffect(() => {
+  useLayoutEffect(() => {
     if(location.pathname==='/services'){ServicesPageContext.setThemeHeader('dark')}
   }, []);
 

@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { AppContext } from '../../App';
-import { useState, useEffect } from 'react';
 import { useLocation } from "react-router";
 
 const KnowsPage = () => {
@@ -18,7 +17,7 @@ const KnowsPage = () => {
     setShow(true);
     setArticle(obj);
   }
-  useEffect(() => {
+  useLayoutEffect(() => {
     if(location.pathname==='/knows'){KnowsPageContext.setThemeHeader('dark')}
   }, []);
 

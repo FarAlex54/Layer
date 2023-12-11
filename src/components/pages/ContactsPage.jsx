@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import {Container, Row, Col, Image} from 'react-bootstrap';
 import { AppContext } from '../../App';
 import CardForContactsPage from '../cards/CardForContactsPage';
@@ -7,7 +7,7 @@ import { useLocation } from "react-router";
 const ContactsPage = () => {
   const ContactsPageContext = React.useContext(AppContext);
   const location = useLocation();
-  useEffect(() => {
+  useLayoutEffect(() => {
     if(location.pathname==='/contacts'){ContactsPageContext.setThemeHeader('dark')}
   }, []);
 

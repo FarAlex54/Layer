@@ -81,7 +81,7 @@ body{
     font-size: calc( (100vw - 480px)/(1280 - 480) * (16 - 8) + 15px);
 }
 .header_button{
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 50px 0px 0px 50px;
     font-family: Roboto;
     font-size: calc( (100vw - 480px)/(1280 - 480) * (16 - 8) + 11px);
 }
@@ -104,8 +104,21 @@ body{
 /* Стили для формы входа/регистрации */
 
 .modal-content {
-    background-color: rgba(0,0,255,0.2) !important;
-    border: 0px !important
+    background-color: rgba(85,160,226,0.8)!important; /* это тотже цвет #55A0E2*/
+    border: 0px !important;
+}
+.tabOfTabs.active{
+    border:1px solid rgba(85,160,226,1) !important;
+    background-color: rgba(85,160,226,1)!important;
+}
+.tabOfTabs:hover{
+    border:1px solid rgba(85,160,226,1) !important;
+}
+.formTab{
+    border:1px solid rgba(85,160,226,0.5) !important;
+    border-radius:0px 0px 10px 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgba(85,160,226,0.5)!important;
 }
 
 /* Стили для карусели с Пакетами услуг */

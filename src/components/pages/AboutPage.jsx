@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import './../../App.css';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import Geolocation from '../GeoLocation';
@@ -6,23 +6,20 @@ import Button from 'react-bootstrap/esm/Button';
 import { AppContext } from '../../App';
 import { useLocation } from "react-router";
 import CardForAbout from '../cards/CardForAbout';
-import { useState, useEffect, useRef } from "react";
 
 const AboutPage = () => {
   const AboutPageContext = React.useContext(AppContext);
-  const [widthBox, setWidthBox] = useState(0);
-  const [widthCard, setWidthCard] = useState(0);
+  const [heighBox, setHeighBox] = useState(0);
+  const [heighCard, setHeighCard] = useState(0);
   const boxRef = useRef();
   const cardRef = useRef();
   const location = useLocation();
-  const getSize = () => {
-    const newWidthBox = boxRef.current.clientWidth;
-    const newWidthCard = cardRef.current.clientWidth;
-    setWidthBox(newWidthBox);
-    setWidthCard(newWidthCard);
-  };
-  useEffect(() => {
-    window.addEventListener("load", getSize());
+
+  useLayoutEffect(() => {
+    const boxWidth = boxRef.current.getBoundingClientRect();
+    const cardWidth = cardRef.current.getBoundingClientRect();
+    setHeighBox(boxWidth.width);
+    setHeighCard(cardWidth.width);
     if(location.pathname==='/about'){AboutPageContext.setThemeHeader('dark')}
   }, []);
 
@@ -34,17 +31,17 @@ const AboutPage = () => {
               <h1 className=''>Формула успешного бизнеса</h1>
               <div className='hr_line'></div>
               <Row className='text-center justify-content-center'>
-                <Col ref={boxRef} xxl={2} xl={2} lg={2} md={2} sm={3} xs={4} className='d-flex justify-content-center align-items-center m-3' style={{border:'1px solid', borderRadius:'10px', height:widthBox}}>
+                <Col ref={boxRef} xxl={2} xl={2} lg={2} md={2} sm={3} xs={4} className='d-flex justify-content-center align-items-center m-3' style={{border:'1px solid', borderRadius:'10px', height:heighBox}}>
                   <div>
                     <p className='h1_about'>20 +</p><p className='p_about '>лет</p>
                   </div>
                 </Col>
-                <Col xxl={2} xl={2} lg={2} md={2} sm={3} xs={4} className='d-flex justify-content-center align-items-center m-3' style={{border:'1px solid',borderRadius:'10px', height:widthBox}}>
+                <Col xxl={2} xl={2} lg={2} md={2} sm={3} xs={4} className='d-flex justify-content-center align-items-center m-3' style={{border:'1px solid',borderRadius:'10px', height:heighBox}}>
                   <div>
                     <p className='h1_about'>100 +</p><p className='p_about'>клиентов</p>
                   </div>
                 </Col>
-                <Col xxl={2} xl={2} lg={2} md={2} sm={3} xs={4} className='d-flex justify-content-center align-items-center m-3' style={{border:'1px solid',borderRadius:'10px', height:widthBox}}>
+                <Col xxl={2} xl={2} lg={2} md={2} sm={3} xs={4} className='d-flex justify-content-center align-items-center m-3' style={{border:'1px solid',borderRadius:'10px', height:heighBox}}>
                   <div>
                     <p className='h1_about'>500 +</p><p className='p_about'>проектов</p>
                   </div>
@@ -57,11 +54,11 @@ const AboutPage = () => {
           <Container className='pt-4'>
             <Row xxl={3} className=''>
              {AboutPageContext.about.map((obj)=>
-                <Col key={obj.id} ref={cardRef} xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:widthCard*(2/3)}}>
+                <Col key={obj.id} ref={cardRef} xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:heighCard*(2/3)}}>
                   <CardForAbout title={obj.title} pathIcon={obj.pathIcon} description={obj.description}/>
                 </Col>
              )}
-             <Col xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:widthCard*(2/3)}}>
+             <Col xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:heighCard*(2/3)}}>
                 <Container className='card_about_next h-100' fluid>
                   <Row className='h-100'>
                     <Col className='text-center'>
