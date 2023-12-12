@@ -5,6 +5,7 @@
 body{
     overflow-x: hidden;
 }
+
 .font_h{
     font-family: Roboto;
     font-size: calc( (100vw - 480px)/(1280 - 480) * (16 - 8) + 11px);
@@ -102,7 +103,12 @@ body{
 
 
 /* Стили для формы входа/регистрации */
-
+.forgotPass{
+    color: rgba(53, 55, 56, 0.75);
+}
+.forgotPass:hover{
+    color: rgb(117, 90, 133);
+}
 .modal-content {
     background-color: rgba(85,160,226,0.8)!important; /* это тотже цвет #55A0E2*/
     border: 0px !important;
