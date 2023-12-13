@@ -24,23 +24,22 @@ function Header(props) {
     <div className={(location.pathname==='/')? 'header_absolute':'header_relative'} style={(props.theme==='dark')? {background:'#FFF', boxShadow: '0px 20px 20px 0px rgba(0, 0, 0, 0.50)'}: null}>
     <div className='d-flex align-items-center justify-content-between'>
       <div className='w-100'>
-        <Container fluid style={{opacity:'0.8'}}>
-          <Navbar className='ps-1 ps-xxl-3 ps-xl-2' expand="md" expanded={expanded}>
+        <Container fluid style={{opacity:'0.8', marginTop: '0'}}>
+          <Navbar className='ps-1 ps-xxl-3 ps-xl-2' expand="md" expanded={expanded} style={{  marginBottom: '16px' }}>
             <Row className='align-items-center w-100'>
-              <Col xxl={2} xl={2} lg={2} md={2} sm={3} xs={3}>
-                <Navbar.Brand><Image src={(HeaderContext.themeHeader==='light')? ((props.theme==='dark')?'/img/Logodark.png':'/img/Logowhite.png'):'/img/Logodark.png'} fluid/></Navbar.Brand>
+              <Col xxl={2} xl={2} lg={2} md={2} sm={3} xs={3} >
+                <Navbar.Brand><Image src={(HeaderContext.themeHeader==='light')? ((props.theme==='dark')?'/img/Logodark.png':'/img/Logowhite.png'):'/img/Logodark.png'} fluid style={{ marginLeft: '119px', width: '104px', height: '66px'}}/></Navbar.Brand>
               </Col>
               <Col sm={(HeaderContext.pageWidth<768)? 10:1} xs={(HeaderContext.pageWidth<768)? 10:1} className={(HeaderContext.pageWidth<768)? 'pt-2':''}>
                 <Navbar.Toggle onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" style={(HeaderContext.pageWidth<=768)? {background:'#55A0E2'}:{background:'rgba(0,0,0,0.0)'}}/> 
               </Col>
               <Col xxl={9} xl={9} lg={9} md={9} sm={5} xs={6}>
                   <Navbar.Collapse id="basic-navbar-nav" style={(HeaderContext.pageWidth<=768)? {background:'#55A0E2', border: '2px solid cyan', borderRadius: '5px', marginTop: '1vh', padding:'1vh'}:{background:'rgba(0,0,0,0.0)'}}>               
-                    <Nav className='justify-content-evenly header_h w-100'>
-                      <Link className={style_navLink} to={'/'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Главная</Link>
-                      <Link className={style_navLink} to={'/services'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Услуги</Link>
-                      <Link className={style_navLink} to={'/knows'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>База знаний</Link>
-                      <Link className={style_navLink} to={'/about'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>О нас</Link>
-                      <Link className={style_navLink} to={'/contacts'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Контакты</Link>
+                    <Nav className='justify-content-evenly header_h w-100' style={{  marginTop: '20px', marginLeft: '10px'}} >
+                      <Link className={style_navLink} to={'/services'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)} style={{ fontSize: '22px', fontWeight: '500' }}>Услуги</Link>
+                      <Link className={style_navLink} to={'/knows'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)} style={{ fontSize: '22px', fontWeight: '500' }}>База знаний</Link>
+                      <Link className={style_navLink} to={'/about'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)} style={{ fontSize: '22px', fontWeight: '500' }}>О нас</Link>
+                      <Link className={style_navLink} to={'/contacts'} onClick={() => setTimeout(() => {setExpanded(false)}, 150)} style={{ fontSize: '22px', fontWeight: '500' }}>Контакты</Link>
                     </Nav>
                   </Navbar.Collapse>
               </Col>
@@ -61,7 +60,7 @@ function Header(props) {
     </Container>
       </div>
       <div className=''>
-        <button className='text-light header_button' style={{whiteSpace: "nowrap",background:'#2707EF'}} onClick={(e)=>handleClick(e)}>Личный кабинет</button>
+        <button className='text-light header_button' style={{whiteSpace: "nowrap",background:'#2707EF', width: '328px', height: '52px', textAign: 'left', fontSize: '24px', paddingRight: '90px'}} onClick={(e)=>handleClick(e)}>Личный кабинет</button>
       </div>
     </div>
     </div>
