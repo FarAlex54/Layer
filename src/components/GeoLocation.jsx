@@ -4,11 +4,11 @@ import Container from 'react-bootstrap/esm/Container';
 
 const GeoLocation = () => {
   return (
-    <Container className='geolocation_map py-5'>
-        <div className='name_block_light'>Наши клиенты</div>
+    <Container className='geolocation_map py-1'>
+        <div className='name_block_light' style={{width:'100%', marginLeft: '36px', marginBottom: '48px'}}>Наши клиенты</div>
         <YMaps>
-            <div className=''>
-              <Map instanceRef={ref => { ref && ref.behaviors.disable('scrollZoom'); }} width='100%' height={window.innerWidth/3}
+            <div className='' style={{width:'100%', marginLeft: '36px', marginBottom: '68px'}}>
+              <Map instanceRef={ref => { ref && ref.behaviors.disable('scrollZoom'); }} width='98%' height={window.innerWidth/3}
                 defaultState={{ center: [55.727053, 37.570984], zoom: 15}}>
 
 {/*                 <Placemark 
