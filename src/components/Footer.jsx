@@ -8,15 +8,15 @@ import Image from 'react-bootstrap/Image';
 
 const Footer = () => {
   return (
-    <Container fluid className=''>
+    <Container fluid className='' style={{ marginBottom: '26px'}}>
       <Row>
-        <Col xxl={2} xl={2} lg={2} md={2} sm={4} xs={4} className='text-center px-sm-4'>
+        <Col xxl={2} xl={2} lg={2} md={2} sm={4} xs={4} className='text-center px-sm-4' style={{ marginLeft: '118px'}}>
           <Link to={'/'} onClick={() => window.scrollTo(0, 0)}>
             <Image className='px-3 px-md-1' src="/img/Logodark.png" fluid/>
           </Link>      
-          <p className='font_p pt-2 pt-xxl-4'>надежный опыт с 2004 года для оперативного решения нестандартных и сложных задач</p>     
+          <p className='font_p pt-2 pt-xxl-4'>надежная основа для успешного ведения бизнеса</p>     
         </Col>
-        <Col xxl={2} xl={2} lg={2} md={2} sm={3} xs={3} className='ps-md-5'>
+        <Col xxl={3} xl={3} lg={3} md={3} sm={3} xs={3} className='ps-md-5' style={{ marginLeft: '66px'}}>
           <p className='font_h fw-bolder'>Компания</p>
                 <ListGroup className='list-group-flush font_p'>
                     <ListGroup.Item action onClick={() => window.scrollTo(0, 0)}><Link to={'/about'} className='text-dark text-decoration-none'>О нас</Link></ListGroup.Item>
@@ -25,7 +25,7 @@ const Footer = () => {
                     <ListGroup.Item action onClick={() => window.scrollTo(0, 0)}><Link to={'/contacts'} className='text-dark text-decoration-none'>Контакты</Link></ListGroup.Item>
                 </ListGroup>
         </Col>
-        <Col className='ps-md-5'>
+        <Col xxl={3} xl={3} lg={3} md={3} sm={3} xs={3} className='ps-md-5'>
           <p className='font_h fw-bolder'>Услуги</p>
           <ListGroup className='list-group-flush font_p'>
                     <ListGroup.Item action >Финансовый аутсорсинг</ListGroup.Item>
@@ -36,9 +36,9 @@ const Footer = () => {
                     <ListGroup.Item action >Обучение</ListGroup.Item>
           </ListGroup>
         </Col>
-        <Col xxl={3} xl={3} lg={3} md={3} sm={5} xs={4} className=''>
+        <Col xxl={2} xl={2} lg={4} md={2} sm={2} xs={2} className='ps-md-5'>
           <p className='font_h fw-bolder'>Контакты</p>
-          <p className='font_p text-end'>Москва, проспект Ленина, д18, корп.38 (800) 359 58 63</p>
+          <p className='font_p text-start'>Москва, проспект Ленина, д18, корп.38 (800) 359 58 63</p>
         </Col>
       </Row>
     </Container>
