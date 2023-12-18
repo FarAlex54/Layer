@@ -8,6 +8,7 @@ const PackagesNewTwo = (props) => {
     const PackagesContext = React.useContext(AppContext);
     const widthCards ={width:(PackagesContext.packages.length*360)+'px'}
     useEffect(()=>{
+
         const arrowBtns = document.querySelectorAll('.arrow-btn')
         const cardBtns = document.querySelectorAll('.card_packages')
         let currentCard = (PackagesContext.packages.length)%2>0? (PackagesContext.packages.length-1)/2:PackagesContext.packages.length/2-1;
@@ -78,10 +79,10 @@ const PackagesNewTwo = (props) => {
   return (
     <div className='body_packages' >
         <div className='name' style={{width:'100%', fontSize: '54px', marginLeft: '286px', marginTop: '14px', marginBottom: '14px', backgroundColor: '#444856', color: 'white'}}>Пакеты услуг</div>
-        <div className='cards-wrapper'  >
+        <div className='cards-wrapper' style={{ marginBottom: '30px'}} >
             <div className='cards' style={widthCards}>
                 {PackagesContext.packages.map((obj,i)=>
-                        <div key={obj.id} className='card_packages' tabIndex="-1">
+                        <div key={obj.id} className='card_packages' tabIndex="-1"  style={{ width: '320px'}} >
                                 <CardForPackages
                                     keys={obj.id+props.keys}
                                     id={obj.id}
@@ -90,6 +91,7 @@ const PackagesNewTwo = (props) => {
                                     description={obj.description}
                                     include={obj.include}
                                     uninclude={obj.uninclude}
+                                    
                                 />
                         </div>
                 )}
