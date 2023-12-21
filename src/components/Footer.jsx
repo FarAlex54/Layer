@@ -8,7 +8,7 @@ import Image from 'react-bootstrap/Image';
 
 const Footer = () => {
   return (
-    <Container fluid className='' style={{ marginBottom: '26px'}}>
+    <Container fluid className='' style={{ marginBottom: '26px', marginTop: '26px'}}>
       <Row>
         <Col xxl={2} xl={2} lg={2} md={2} sm={4} xs={4} className='text-center px-sm-4' style={{ marginLeft: '118px'}}>
           <Link to={'/'} onClick={() => window.scrollTo(0, 0)}>
