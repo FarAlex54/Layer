@@ -22,16 +22,16 @@ const KnowsPage = () => {
   }, []);
 
   return (
-    <div>
+    <div >
       {KnowsPageContext.articles.map((obj)=>
-        <div key={obj.id}>
-          <div className='bg-secondary py-4'>
-            <Container className='knows_page_article_header'>
+        <div key={obj.id} >
+          <div className='py-3' style={{backgroundColor: '#444856', paddingLeft: '66px'}}>
+            <Container className='knows_page_article_header' >
               <a href="" onClick={(e)=>handleClick(obj,e)}><span>Статья {obj.number} {obj.title}</span></a>
             </Container>
           </div>
-            <Container className=''>
-              <p className='knows_page_p'>{obj.text}</p>
+            <Container className='' style={{ paddingLeft: '66px'}}>
+              <p className='knows_page_p pt-2 pb-4'>{obj.text}</p>
             </Container>
         </div>
       )}
