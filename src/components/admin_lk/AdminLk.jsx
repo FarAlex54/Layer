@@ -145,6 +145,7 @@ function AdminLk() {
           </div>
   
           <ButtonGroup aria-label="Basic example">
+            <Button variant="secondary" >На сайт</Button>
             <Button variant="secondary" disabled={!selectedArticle}>Удалить</Button>
             <Button variant="secondary" onClick={handleShowEditModal} disabled={!selectedArticle}>Редактировать</Button>
             <Modal size="lg" show={showEditModal} onHide={handleCloseEditModal} aria-labelledby="example-modal-sizes-title-lg">
@@ -218,6 +219,7 @@ function AdminLk() {
           </div>
   
           <ButtonGroup aria-label="Basic example">
+            <Button variant="secondary" >На сайт</Button>
             <Button variant="secondary" disabled={!selectTeach}>Удалить</Button>
             <Button variant="secondary" onClick={handleShowEditModalTeach} disabled={!selectTeach}>Редактировать</Button>
             <Modal size="lg" show={showEditModalTeach} onHide={handleCloseEditModalTeach} aria-labelledby="example-modal-sizes-title-lg">
@@ -315,6 +317,7 @@ function AdminLk() {
           </div>
   
           <ButtonGroup aria-label="Basic example">
+            <Button variant="secondary" >На сайт</Button>
             <Button variant="secondary" disabled={!selectedStocks}>Удалить</Button>
             <Button variant="secondary" onClick={handleShowEditModalStocks} disabled={!selectedStocks}>Редактировать</Button>
             <Modal size="lg" show={showEditModalStocks} onHide={handleCloseEditModalStocks} aria-labelledby="example-modal-sizes-title-lg">
@@ -391,6 +394,7 @@ function AdminLk() {
           </div>
   
           <ButtonGroup aria-label="Basic example">
+           <Button variant="secondary" >На сайт</Button>
             <Button variant="secondary" disabled={!selectPackage}>Удалить</Button>
             <Button variant="secondary" onClick={handleShowEditModalPackage} disabled={!selectPackage}>Редактировать</Button>
             <Modal size="lg" show={showEditModalPackage} onHide={handleCloseEditModalPackage} aria-labelledby="example-modal-sizes-title-lg">
@@ -581,11 +585,13 @@ function AdminLk() {
                 <Button variant="primary">Сохранить</Button>
               </Modal.Footer>
             </Modal>
+
+           
           </ButtonGroup>
         </Tab>
-  
+
       </Tabs>
-      
+
     );
 }
 

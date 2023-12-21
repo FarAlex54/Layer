@@ -26,10 +26,10 @@ const AboutPage = () => {
   return (
     <div>
         {/* Серый блок с квадратиками */}
-          <Container className='py-5' fluid style={{background:'#444856',color:'#FFF'}}>
+          <Container className='py-5' fluid style={{background:'#444856',color:'#FFF', paddingLeft: '82px'}}>
             <Container>
-              <h1 className=''>Формула успешного бизнеса</h1>
-              <div className='hr_line'></div>
+              <h1 className=''>Надежная бизнес основа, для успешного ведения  бизнеса</h1>
+              <div className='hr_line' style={{marginBottom: '30px', marginTop: '30px', width: '1264px' }}></div>
               <Row className='text-center justify-content-center'>
                 <Col ref={boxRef} xxl={2} xl={2} lg={2} md={2} sm={3} xs={4} className='d-flex justify-content-center align-items-center m-3' style={{border:'1px solid', borderRadius:'10px', height:heighBox}}>
                   <div>
@@ -47,26 +47,30 @@ const AboutPage = () => {
                   </div>
                 </Col>
               </Row>
-              <div className='hr_line'></div>
+              <div className='hr_line' style={{marginBottom: '30px', marginTop: '30px', width: '1264px' }}></div>
             </Container>
           </Container>
+        
         {/* Блок с карточками и брэндом */}  
-          <Container className='pt-4'>
-            <Row xxl={3} className=''>
+          <Container className='py-5' style={{width: '1294px', marginLeft:'136px' }}>
+            <Row xxl={3} className=''  >
              {AboutPageContext.about.map((obj)=>
-                <Col key={obj.id} ref={cardRef} xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:heighCard*(2/3)}}>
-                  <CardForAbout title={obj.title} pathIcon={obj.pathIcon} description={obj.description}/>
+                <Col key={obj.id} ref={cardRef} xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-5' style={{height:heighCard*(2/3)}}>
+                  <CardForAbout title={obj.title } pathIcon={obj.pathIcon} description={obj.description} />
                 </Col>
              )}
-             <Col xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-2' style={{height:heighCard*(2/3)}}>
-                <Container className='card_about_next h-100' fluid>
+
+             <Col xxl={4} xl={4} lg={4} md={6} sm={6} xs={6} className='pb-5' style={{height:heighCard*(2/3)}}>
+                <Container className='card_about_next h-100' fluid >
                   <Row className='h-100'>
                     <Col className='text-center'>
-                      <Image className='h-100 p-3' src='/img/Logodark.png' fluid/>
+                      <Image className='p-5' src='/img/Logodark.png' fluid/>
                     </Col>
                   </Row>
                 </Container>
              </Col>
+
+
             </Row> 
           </Container>
       <Geolocation/>
