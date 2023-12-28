@@ -7,10 +7,10 @@ import { AppContext } from '../App';
 const Banner = () => {
   const [changeSlide,setChangeSlide] = useState(1);
   const BannerContext = React.useContext(AppContext);
-  const [isLoaded, setIsLoaded] = useState(false);
+/*   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() =>{
     isLoaded? console.log('загружено'):console.log('не загружено')
-  },[isLoaded])
+  },[isLoaded]) */
 
   return (
     <div className=''>
@@ -30,7 +30,7 @@ const Banner = () => {
           initial={{ scale: 1 }}
           animate={{ scale: 1.2}}
           transition={{duration: 7}}
-          onLoad={()=> setIsLoaded(true)}
+          /* onLoad={()=> setIsLoaded(true)} */
         />
         <Carousel.Caption className='carusel_caption'>
           <div className='d-flex row' style={{height:'100%'}}>

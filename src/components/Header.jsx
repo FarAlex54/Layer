@@ -5,21 +5,20 @@ import { AppContext } from '../App';
 import SignLogin from './pages/SignLogin';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
+import AdminLk from './admin_lk/AdminLk';
 
 function Header(props) {
   const HeaderContext = React.useContext(AppContext);
   const location = useLocation();
-  const [show,setShow] = useState(false); //для модалки, конкретнее для формы Sign/Login
-  const handleClose = () => setShow(false);
+/*   const [showForHeader,setShowForHeader] = useState(false); //для модалки, конкретнее для формы Sign/Login */
+  const handleClose = () => HeaderContext.setShowForHeader(false);
   function handleClick(e){
     e.preventDefault();
-    setShow(true);
+    HeaderContext.setShowForHeader(true);
   }
-      
+ 
   const style_navLink = (HeaderContext.themeHeader==='light')? ((props.theme==='dark')? 'text-dark text-decoration-none':'text-white text-decoration-none'):'text-dark text-decoration-none';
   const [expanded, setExpanded] = useState(false);
-
   return (
     <div className={(location.pathname==='/')? 'header_absolute':'header_relative'} style={(props.theme==='dark')? {background:'#FFF', boxShadow: '0px 20px 20px 0px rgba(0, 0, 0, 0.50)'}: null}>
     <div className='d-flex align-items-center justify-content-between'>
@@ -51,9 +50,9 @@ function Header(props) {
                           </div>
                         </Col>
                       </Row> */}
-      <Modal className='' size="lg" aria-labelledby="contained-modal-title-vcenter" show={show} onHide={handleClose}>
-          <Modal.Body className=''>
-            <SignLogin className=''/>
+      <Modal size="lg" aria-labelledby="contained-modal-title-vcenter" show={HeaderContext.showForHeader} onHide={handleClose}>
+          <Modal.Body>
+            <SignLogin/>
           </Modal.Body>
       </Modal> 
       </Navbar>

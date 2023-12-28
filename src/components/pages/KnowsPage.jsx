@@ -8,13 +8,13 @@ import { useLocation } from "react-router";
 const KnowsPage = () => {
   const KnowsPageContext = React.useContext(AppContext);
   const [article,setArticle] = useState({});
-  const [show,setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [showForKnowsPage,setShowForKnowsPage] = useState(false);
+  const handleClose = () => setShowForKnowsPage(false);
   const location = useLocation();
 
   function handleClick(obj,e){
     e.preventDefault();
-    setShow(true);
+    setShowForKnowsPage(true);
     setArticle(obj);
   }
   useLayoutEffect(() => {
@@ -35,7 +35,7 @@ const KnowsPage = () => {
             </Container>
         </div>
       )}
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={showForKnowsPage} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{article.number} {article.title}</Modal.Title>
         </Modal.Header>

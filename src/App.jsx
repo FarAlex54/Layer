@@ -18,6 +18,8 @@ function App() {
         const [pageWidth, setPageWidth] = useState(document.documentElement.scrollWidth);
   const [showPic,setShowPic] = useState(false); /* Хук отображения картинок банера*/
   const [isAuthenticated,setIsAuthenticated] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false); //определение роли администратора
+  const [showForHeader,setShowForHeader] = useState(false); //для модалки, конкретнее для формы Sign/Login
   const services = ([
     {
       id: 1,
@@ -298,7 +300,7 @@ function App() {
     {
       id:3,
       name:"Владыка",
-      login:"owner",
+      login:"admin",
       password: "admin",
       email: "serg@mail.ru",
       phone: 89999998888,
@@ -358,11 +360,12 @@ function App() {
               isAuthenticated,setIsAuthenticated,
               themeHeader, setThemeHeader,
               showPic,setShowPic,
-              users, setUsers
+              users, setUsers,
+              isAdmin, setIsAdmin,
+              showForHeader,setShowForHeader
               }}>
       <div className='user-select-none'> 
         <Router>          
-          
             <div className='navbar_sticky'> {/* Залипательный navbar контента */}
               <div className='navbar_absolute' style={(scrollPosition>50 & pageWidth>768)? {animation: 'ani_on 0.5s forwards'}:{animation: 'ani_off 0.8s forwards'}}> {/* Поверх всего контента */}
                 <Header theme='dark'/>

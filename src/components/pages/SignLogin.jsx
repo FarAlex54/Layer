@@ -5,15 +5,17 @@ import { useForm } from 'react-hook-form';
 import { AppContext } from './../../App';
 import TabContainer from 'react-bootstrap/TabContainer'
 
+
 const SignLogin = () => {
     const SignLoginContext = React.useContext(AppContext);
     /* Переменные и функции для формы Login */
     const [loginField, setLoginField] = useState(false);
     const [existUser,setExistUser] = useState(false);
-    const [checkPass,setCheckPass] = useState(false);   
+    const [checkPass,setCheckPass] = useState(false);
     function findUser(e){
       e.preventDefault();
-      const user = SignLoginContext.users.find(obj =>(obj.login === document.getElementById('login').value));
+      const user = SignLoginContext.users.find((obj) =>(obj.login === document.getElementById('login').value));
+      console.log('user role = ',user.role);
       (user)? (user.password===document.getElementById('pass').value ? alert('Добро пожаловать, ' + user.name):setCheckPass(true)):setExistUser(true);
     }
     function loginChange(e){
